@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Details";
+}
+@model Product
+
+<div class="main-page">
+    <div class="details-product">
+        <div class="details-product-title">
+            @Model.Category.Name "@Model.Name"
+        </div>
+        <div class="details-product-body">
+            <div class="details-product-img">
+                <img src="@Url.Content(Model.Photo.Path + Model.Photo.Name)" alt="img" />
+                @*<img src="~/Files/Images/@Model.Photo" alt="img" />*@
+            </div>
+            <div class="details-product-description-wrapper">
+                <div class="details-product-price">
+                    @Model.Price BYN
+                </div>
+                <div class="details-product-description">
+                    @Model.Description
+                </div>
+            </div>
+        </div>
+        <form asp-controller="Purchases" asp-action="Create" method="post" class="order-form">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <input type="number" name="amount" value="0" />
+            <input type="submit" value="Заказать" />
+        </form>
+    </div>
+</div>

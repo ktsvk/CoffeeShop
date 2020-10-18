@@ -1,0 +1,30 @@
+﻿@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@inject WebCoffee.Data.ApplicationDbContext context
+
+
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var user = await UserManager.GetUserAsync(User);
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Notifications" asp-action="Index">Уведомления @context.Notifications.Where(x => x.To.Id == user.Id && x.Status == false).Count()</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @User.Identity.Name!</a>
+        </li>
+        <li class="nav-item">
+            <a class="form-inline" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+    }
+</ul>

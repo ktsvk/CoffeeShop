@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Suggest product";
+}
+@model IEnumerable<Suggestion>
+@inject WebCoffee.Data.ApplicationDbContext context
+
+<h1>Предложения клиентов</h1>
+
+<div class="main-page">
+    <div class="suggestions">
+        @foreach (var item in Model)
+        {
+            <div class="suggestion">
+                <div>
+                    @item.User.UserName
+                </div>
+                <div>
+                    @item.Name
+                </div>
+                <div>
+                    @item.Category
+                </div>
+                <div>
+                    <img src="@Url.Content(item.Photo.Path + item.Photo.Name)" alt="img" />
+                    @*<img src="~/Files/Images/@item.Photo" alt="img" />*@
+                </div>
+                <div>
+                    @item.Price
+                </div>
+                <div>
+                    @item.Date
+                    @item.Time
+                </div>
+                <div>
+                    <form method="post" asp-controller="Suggestions" asp-action="Refuse" asp-route-id="@item.Id">
+                        <div>
+                            <span>Сообщение</span>
+                            <input type="text" name="Message" value="" />
+                        </div>
+                        <input type="submit" value="Отказать" />
+                    </form>
+                    <form method="post" asp-controller="Suggestions" asp-action="Confirm" asp-route-id="@item.Id">
+                        <div>
+                            <span>NormalizedCategory</span>
+                            <input type="text" name="NormalizedCategory" value="" />
+                        </div>
+                        <input type="submit" value="Добавить" />
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</div>

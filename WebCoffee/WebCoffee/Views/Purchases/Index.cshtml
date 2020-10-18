@@ -1,0 +1,50 @@
+﻿@inject WebCoffee.Data.ApplicationDbContext context;
+@using WebCoffee.Models
+@model IEnumerable<Purchase>
+@{
+    ViewData["Title"] = "Purchases";
+}
+
+<div class="main-page">
+    <div class="page-header">Корзина</div>
+    @if (context.Purchases.Count() == 0)
+    {
+        @:Ваша корзина пуста
+    }
+    else
+    {
+        <div class="purchases">
+            @foreach (Purchase p in Model)
+            {
+            <div class="purchases-item">
+                <div class="purchases-img">
+                    @*<img src="~/Files/Images/@p.Product.Photo" alt="img" />*@
+                    <img src="@Url.Content(p.Product.Photo.Path + p.Product.Photo.Name)" alt="img" />
+                </div>
+                <div class="purchase-body">
+                    <div class="purchase-title">
+                        @p.Product.Category.Name "@p.Product.Name"
+                    </div>
+                    <div class="purchase-price">
+                        Цена: @p.Product.Price BYN
+                    </div>
+                </div>
+                <div class="purchase-amount">
+                    Кол-во: @p.Amount
+                </div>
+                <div class="purchase-datetime">
+                    <div class="purchase-date">
+                        Дата: @p.Date
+                    </div>
+                    <div class="purchase-time">
+                        Время: @p.Time
+                    </div>
+                </div>
+                <a href="/Purchases/Delete/@p.Id" class="purchase-button">
+                    Удалить
+                </a>
+            </div>
+            }
+        </div>
+    }
+</div>

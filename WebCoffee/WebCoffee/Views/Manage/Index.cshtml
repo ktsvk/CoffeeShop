@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Account";
+}
+@model IdentityUser
+
+<div class="main-page">
+    <div>
+        Account Settings
+    </div>
+    <div>
+        @Model.UserName
+    </div>
+    <div>
+        @Model.Email
+    </div>
+</div>

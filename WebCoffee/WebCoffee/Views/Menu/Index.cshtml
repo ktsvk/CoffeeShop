@@ -1,0 +1,36 @@
+﻿@using WebCoffee.Models
+@model List<Product> 
+@inject WebCoffee.Data.ApplicationDbContext context
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<div class="main-page">
+    <div class="page-header">Меню</div>
+    <div class="menu-filter">
+        <form action="/Menu/Index" method="post">
+            <select name="category">
+                @foreach (Category item in context.Categories)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+            <input type="submit" value="Применить" />
+        </form>
+    </div>
+    <div class="menu-products">
+        @foreach (Product p in Model)
+        {
+            <a href="~/Menu/Details/@p.Id" class="product-item">
+                <div class="product-title">
+                    @p.Category.Name "@p.Name"
+                </div>
+                <div class="product-img">
+                    <span class="product-item-price">@p.Price</span>
+                    @*<img src="~/Files/Images/@p.Photo" alt="photo" />*@
+                    <img src="@Url.Content(p.Photo.Path + p.Photo.Name)" alt="photo" />
+                </div>
+            </a>
+        }
+    </div>
+</div>

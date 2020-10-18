@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Аккаунт";
+}
+@model IEnumerable<IdentityRole>
+<div class="main-page">
+    <div>Roles</div>
+    <div class="add-role">
+        <form method="post" asp-controller="Roles" asp-action="Create">
+            <input type="text" name="roleName" value="" placeholder="Название роли"/>
+            <input type="submit" value="Добавить роль" />
+        </form>
+    </div>
+    <div class="roles">
+        @foreach (IdentityRole item in Model)
+        {
+            <div class="role">
+                <div class="role-name">
+                    @item.Name
+                </div>
+                <form asp-controller="Roles" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                    <input type="submit" value="Удалить роль" />
+                </form>
+            </div>
+        }
+    </div>
+</div>
