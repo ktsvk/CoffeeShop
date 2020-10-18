@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TgEpQufbBEEffbn+gb+iHSEzvThy6mZ9/2zPL4j6Gga6TVGrBjQ6B4FgNLLnZbI9opo+MYEVQbC0gW9/rLH0UA==",
+  "dgSpecHash": "y9mUtidk4lc7QSFT14t1Iz4L1uph4OP5d0tKupDH7k+T0jhgqO/jEJcfVQUG4dro8Jo4kcSibtMZev6RYVFJPQ==",
   "success": true,
-  "projectFilePath": "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
+  "projectFilePath": "D:\\temp\\CoffeeShop\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lonatelled\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.8\\microsoft.aspnetcore.cryptography.internal.3.1.8.nupkg.sha512",
     "C:\\Users\\Lonatelled\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.8\\microsoft.aspnetcore.cryptography.keyderivation.3.1.8.nupkg.sha512",

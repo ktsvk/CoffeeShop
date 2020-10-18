@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\WebCoffee.csproj": {}
+    "D:\\temp\\CoffeeShop\\WebCoffee\\WebCoffee\\WebCoffee.csproj": {}
   },
   "projects": {
-    "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\WebCoffee.csproj": {
+    "D:\\temp\\CoffeeShop\\WebCoffee\\WebCoffee\\WebCoffee.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
+        "projectUniqueName": "D:\\temp\\CoffeeShop\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
         "projectName": "WebCoffee",
-        "projectPath": "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
+        "projectPath": "D:\\temp\\CoffeeShop\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
         "packagesPath": "C:\\Users\\Lonatelled\\.nuget\\packages\\",
-        "outputPath": "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\obj\\",
+        "outputPath": "D:\\temp\\CoffeeShop\\WebCoffee\\WebCoffee\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lonatelled\\AppData\\Roaming\\NuGet\\NuGet.Config",
