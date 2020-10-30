@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject WebCoffee.Data.ApplicationDbContext context
-@inject SignInManager<IdentityUser> signInManager
-@inject UserManager<IdentityUser> userManager
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,17 +30,14 @@
                         {
                             var user = await userManager.GetUserAsync(User);
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Purchases" asp-action="Index">Корзина @context.Purchases.Where(x => x.User.Id == user.Id).Count()</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Bag" asp-action="Index">Корзина</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Suggestions" asp-action="Index">Предложения</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Purchases" asp-action="Index">Заказы</a>
                             </li>
                         }
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Suggestions" asp-action="Admin">Предложения пользователей</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Роли</a>
                             </li>

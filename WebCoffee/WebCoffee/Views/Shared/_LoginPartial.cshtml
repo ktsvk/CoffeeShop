@@ -1,21 +1,28 @@
-﻿@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+﻿@using Microsoft.EntityFrameworkCore;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 @inject WebCoffee.Data.ApplicationDbContext context
-
-
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        var user = await UserManager.GetUserAsync(User);
+        var identityUser = await UserManager.GetUserAsync(User);
+        var user = context.Users.Where(x => x.Id == identityUser.Id).Include(x => x.Photo).FirstOrDefault();
+        
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Notifications" asp-action="Index">Уведомления @context.Notifications.Where(x => x.To.Id == user.Id && x.Status == false).Count()</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @User.Identity.Name!</a>
+            <a class="header__profile" asp-area="" asp-controller="Manage" asp-action="Index">
+                @if(context.Notifications.Where(x => x.To.Id == user.Id && x.Status == false).Count() > 0)
+                {
+                    <span class="header__profile__notifications"></span>
+                }
+                <img class="header__photo" src="@Url.Content(user.Photo.Path + user.Photo.Name)" alt="img" />
+            </a>
         </li>
         <li class="nav-item">
-            <a class="form-inline" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+            <a asp-area="" asp-controller="Account" asp-action="Logout">Выйти</a>
         </li>
     }
     else

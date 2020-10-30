@@ -1,0 +1,41 @@
+﻿@{
+}
+@model List<Bag>
+
+<div class="main-page">
+    <div>Корзина</div>
+    <div class="bag">
+        @foreach (var bag in Model)
+        {
+            <div class="bag__item">
+                <div class="bag__item__img">
+                    <img src="@Url.Content(bag.Product.Photo.Path + bag.Product.Photo.Name)" alt="img" />
+                </div>
+                <div class="bag__item__product-name">
+                    @bag.Product.Name
+                </div>
+                <div class="bag__item__product-price">
+                    @bag.Product.Price
+                </div>
+                <div class="bag__item__amount">
+                    @bag.Amount
+                </div>
+                <div class="bag__item__portion">
+                    @bag.Portion.Size
+                </div>
+                <form asp-controller="Purchases" asp-action="Create" asp-route-id="@bag.Id" method="post">
+                    <input type="submit" value="Заказать" />
+                </form>
+                <form asp-controller="Bag" asp-action="Delete" asp-route-id="@bag.Id" method="post">
+                    <input type="submit" value="Удалить" />
+                </form>
+            </div>
+        }
+    </div>
+    <form asp-controller="Purchases" asp-action="CreateAll" method="post">
+        <input type="submit" value="Заказать все" />
+    </form>
+    <form asp-controller="Bag" asp-action="DeleteAll" method="post">
+        <input type="submit" value="Удалить все" />
+    </form>
+</div>

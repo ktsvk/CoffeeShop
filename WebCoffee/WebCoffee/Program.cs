@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WebCoffee.Data;
+using WebCoffee.Models;
 
 namespace WebCoffee
 {
@@ -24,10 +25,10 @@ namespace WebCoffee
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                     var rolesManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-                    await RolesInizializer.InizializeAsync(userManager, rolesManager);
                     await DbInitializer.InitializeAsync(context);
+                    await RolesInizializer.InizializeAsync(userManager, rolesManager, context);
                 }
                 catch (Exception ex)
                 {

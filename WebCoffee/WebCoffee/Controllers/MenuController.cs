@@ -22,18 +22,25 @@ namespace WebCoffee.Controllers
             _logger = logger;
             _context = context;
         }
-
-        public ActionResult Index(int? category)
+        [HttpGet]
+        public async Task<ActionResult> Index(int? category)
         {
             if (category != null && category > 0)
             {
-                return View(_context.Products.Where(x => x.Category.Id == category).Include(x => x.Photo).Include(p => p.Category).ToList());
+                return View(await _context.Products.Where(x => x.Category.Id == category)
+                    .Include(x => x.Category)
+                    .Include(x => x.Photo).ToListAsync());
             }
-            return View(_context.Products.Include(x => x.Photo).Include(p => p.Category).ToList());
+            return View(await _context.Products
+                    .Include(x => x.Category)
+                    .Include(x => x.Photo).ToListAsync());
         }
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View(_context.Products.Where(x => x.Id == id).Include(x => x.Photo).Include(x => x.Category).FirstOrDefault());
+            return View(await _context.Products.Where(x => x.Id == id)
+                .Include(x => x.Category)
+                .Include(x => x.Photo)
+                .FirstOrDefaultAsync());
         }
     }
 }

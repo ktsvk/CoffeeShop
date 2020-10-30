@@ -1,50 +1,49 @@
 ﻿@inject WebCoffee.Data.ApplicationDbContext context;
 @using WebCoffee.Models
-@model IEnumerable<Purchase>
+@model IEnumerable<Order>
 @{
     ViewData["Title"] = "Purchases";
 }
 
 <div class="main-page">
-    <div class="page-header">Корзина</div>
-    @if (context.Purchases.Count() == 0)
-    {
-        @:Ваша корзина пуста
-    }
-    else
-    {
-        <div class="purchases">
-            @foreach (Purchase p in Model)
-            {
-            <div class="purchases-item">
-                <div class="purchases-img">
-                    @*<img src="~/Files/Images/@p.Product.Photo" alt="img" />*@
-                    <img src="@Url.Content(p.Product.Photo.Path + p.Product.Photo.Name)" alt="img" />
-                </div>
-                <div class="purchase-body">
-                    <div class="purchase-title">
-                        @p.Product.Category.Name "@p.Product.Name"
+    <div class="page-header">Ваши заказы</div>
+    <div class="orders">
+        @foreach (var order in Model)
+        {
+            <div class="order">
+                <div class="order-header">
+                    <div>
+                        @order.Date
                     </div>
-                    <div class="purchase-price">
-                        Цена: @p.Product.Price BYN
+                    <div>
+                        @order.Time
                     </div>
                 </div>
-                <div class="purchase-amount">
-                    Кол-во: @p.Amount
+                <div class="purchases">
+                    @foreach (var purchase in order.Purchases)
+                    {
+                        <div class="purchase">
+                            <div class="purchase__img">
+                                <img src="@Url.Content(purchase.Product.Photo.Path + purchase.Product.Photo.Name)" alt="img" />
+                            </div>
+                            <div class="purchase__body">
+                                <div class="purchase__title">
+                                    @purchase.Product.Category.Name "@purchase.Product.Name"
+                                </div>
+                                <div class="purchase__price">
+                                    Цена: @purchase.Product.Price BYN
+                                </div>
+                            </div>
+                            <div class="purchase__amount">
+                                Кол-во: @purchase.Amount
+                            </div>
+                            <div>
+                                @purchase.Portion.Name @purchase.Portion.Size
+                            </div>
+                        </div>
+                    }
                 </div>
-                <div class="purchase-datetime">
-                    <div class="purchase-date">
-                        Дата: @p.Date
-                    </div>
-                    <div class="purchase-time">
-                        Время: @p.Time
-                    </div>
-                </div>
-                <a href="/Purchases/Delete/@p.Id" class="purchase-button">
-                    Удалить
-                </a>
             </div>
-            }
-        </div>
-    }
+        }
+    </div>
 </div>

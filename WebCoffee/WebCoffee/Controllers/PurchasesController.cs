@@ -18,10 +18,10 @@ namespace WebCoffee.Controllers
     public class PurchasesController : Controller
     {
         private ILogger<PurchasesController> _logger;
-        private UserManager<IdentityUser> _userManager;
+        private UserManager<ApplicationUser> _userManager;
         public ApplicationDbContext _context;
 
-        public PurchasesController(ILogger<PurchasesController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public PurchasesController(ILogger<PurchasesController> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
             _context = context;
@@ -31,16 +31,59 @@ namespace WebCoffee.Controllers
         public async Task<ActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
-            return View(_context.Purchases.Where(x => x.User.Id == user.Id).Include(x => x.User).Include(p => p.Product).ThenInclude(x => x.Photo).Include(x => x.Product).ThenInclude(p => p.Category).ToList());
+            return View(await _context.Orders.Where(x => x.User.Id == user.Id)
+                .Include(x => x.User)
+                .Include(x => x.Purchases).ThenInclude(x => x.Product).ThenInclude(x => x.Category)
+                .Include(x => x.Purchases).ThenInclude(x => x.Product).ThenInclude(x => x.Photo)
+                .Include(x => x.Purchases).ThenInclude(x => x.Portion)
+                .Include(x => x.Purchases).ThenInclude(x => x.Order).ToListAsync());
         }
         [HttpPost]
-        public async Task<ActionResult> Create(int id, int amount)
+        public async Task<ActionResult> Create(int id)
         {
-            var product = _context.Products.Where(x => x.Id == id).FirstOrDefault();
-            if(product != null && amount > 0)
+            var user = await _userManager.GetUserAsync(User);
+            var bag = await _context.Bags.Where(x => x.User.Id == user.Id && x.Id == id)
+                .Include(x => x.Product).ThenInclude(x => x.Photo)
+                .Include(x => x.Product).ThenInclude(x => x.Category)
+                .Include(x => x.Portion)
+                .Include(x => x.User).FirstOrDefaultAsync();
+            if(bag != null)
             {
-                var user = await _userManager.GetUserAsync(User);
-                await _context.Purchases.AddAsync(new Purchase() { Amount = amount, Date = DateTime.Now.ToShortDateString(), Time = DateTime.Now.ToShortTimeString(), Product = product, User = user  });
+                var price = bag.Product.Price * bag.Amount;
+                var datetime = DateTime.Now;
+                await _context.Orders.AddAsync(new Order() { Price = price, Date = datetime.ToShortDateString(), Time = datetime.ToShortTimeString(), User = user });
+                await _context.SaveChangesAsync();
+                //var order = await _context.Orders.Where(x => x.Time == datetime.ToShortTimeString()).FirstOrDefaultAsync();
+                var order = await _context.Orders.Where(x => x.User.Id == user.Id).OrderByDescending(x => x.Id).FirstOrDefaultAsync();
+                await _context.Purchases.AddAsync(new Purchase() { Amount = bag.Amount, Portion = bag.Portion, Price = price, Product = bag.Product, Order = order });
+                _context.Bags.Remove(bag);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public async Task<ActionResult> CreateAll()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var bag = await _context.Bags.Where(x => x.User.Id == user.Id)
+                .Include(x => x.Product).ThenInclude(x => x.Photo)
+                .Include(x => x.Product).ThenInclude(x => x.Category)
+                .Include(x => x.Portion)
+                .Include(x => x.User).ToListAsync();
+            if(bag.Count() > 0)
+            {
+                var datetime = DateTime.Now;
+                await _context.Orders.AddAsync(new Order() { Price = 0, Date = datetime.ToShortDateString(), Time = datetime.ToShortTimeString(), User = user });
+                await _context.SaveChangesAsync();
+                //var order = await _context.Orders.Where(x => x.Time == datetime.ToShortTimeString()).FirstOrDefaultAsync();
+                var order = await _context.Orders.Where(x => x.User.Id == user.Id).OrderByDescending(x => x.Id).FirstOrDefaultAsync();
+                foreach (var item in bag)
+                {
+                    var price = item.Product.Price * item.Amount;
+                    await _context.Purchases.AddAsync(new Purchase() { Amount = item.Amount, Portion = item.Portion, Price = price, Product = item.Product, Order = order });
+                    await _context.SaveChangesAsync();
+                }
+                _context.Bags.RemoveRange(bag);
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index");

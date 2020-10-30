@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebCoffee.Data;
+using WebCoffee.Models;
 
 namespace WebCoffee.Controllers
 {
     [Authorize]
     public class NotificationsController : Controller
     {
-        private UserManager<IdentityUser> _userManager;
+        private UserManager<ApplicationUser> _userManager;
         private ApplicationDbContext _context;
 
-        public NotificationsController(UserManager<IdentityUser> userManager, ApplicationDbContext context)
+        public NotificationsController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
             _context = context;

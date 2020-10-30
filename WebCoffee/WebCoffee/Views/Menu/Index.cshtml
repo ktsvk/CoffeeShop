@@ -8,27 +8,26 @@
 <div class="main-page">
     <div class="page-header">Меню</div>
     <div class="menu-filter">
-        <form action="/Menu/Index" method="post">
+        <form method="get" asp-controller="Menu" asp-action="Index">
             <select name="category">
-                @foreach (Category item in context.Categories)
+                @foreach (var category in context.Categories)
                 {
-                    <option value="@item.Id">@item.Name</option>
+                    <option value="@category.Id">@category.Name</option>
                 }
             </select>
             <input type="submit" value="Применить" />
         </form>
     </div>
     <div class="menu-products">
-        @foreach (Product p in Model)
+        @foreach (var product in Model)
         {
-            <a href="~/Menu/Details/@p.Id" class="product-item">
+            <a href="~/Menu/Details/@product.Id" class="product-item">
                 <div class="product-title">
-                    @p.Category.Name "@p.Name"
+                    @product.Category.Name "@product.Name"
                 </div>
                 <div class="product-img">
-                    <span class="product-item-price">@p.Price</span>
-                    @*<img src="~/Files/Images/@p.Photo" alt="photo" />*@
-                    <img src="@Url.Content(p.Photo.Path + p.Photo.Name)" alt="photo" />
+                    <span class="product-item-price">@product.Price</span>
+                    <img src="@Url.Content(product.Photo.Path + product.Photo.Name)" alt="photo" />
                 </div>
             </a>
         }

@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Details";
 }
+@inject WebCoffee.Data.ApplicationDbContext context
 @model Product
 
 <div class="main-page">
@@ -11,7 +12,6 @@
         <div class="details-product-body">
             <div class="details-product-img">
                 <img src="@Url.Content(Model.Photo.Path + Model.Photo.Name)" alt="img" />
-                @*<img src="~/Files/Images/@Model.Photo" alt="img" />*@
             </div>
             <div class="details-product-description-wrapper">
                 <div class="details-product-price">
@@ -20,12 +20,30 @@
                 <div class="details-product-description">
                     @Model.Description
                 </div>
+                <div>
+                    <form asp-controller="Bag" asp-action="Create" method="post">
+                        <div>
+                            <div>
+                                <label for="portion1">Маленькая</label>
+                                <input id="portion1" type="radio" name="portion" value="100" checked />
+                            </div>
+                            <div>
+                                <label for="portion2">Средняя</label>
+                                <input id="portion2" type="radio" name="portion" value="200" />
+                            </div>
+                            <div>
+                                <label for="portion3">Большая</label>
+                                <input id="portion3" type="radio" name="portion" value="300" />
+                            </div>
+                        </div>
+                        <div>
+                            <input type="number" name="amount" value="1" />
+                        </div>
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <input type="submit"  value="Добавить в корзину" />
+                    </form>
+                </div>
             </div>
         </div>
-        <form asp-controller="Purchases" asp-action="Create" method="post" class="order-form">
-            <input type="hidden" name="id" value="@Model.Id" />
-            <input type="number" name="amount" value="0" />
-            <input type="submit" value="Заказать" />
-        </form>
     </div>
 </div>

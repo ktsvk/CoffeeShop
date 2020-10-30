@@ -1,16 +1,37 @@
 ﻿@{
     ViewData["Title"] = "Account";
 }
-@model IdentityUser
+@model ApplicationUser
 
 <div class="main-page">
-    <div>
-        Account Settings
+    <div class="profile">
+        <div class="profile__photo">
+            <img src="@Url.Content(Model.Photo.Path + Model.Photo.Name)" alt="img" />
+            <form asp-controller="Manage" asp-action="ChangePhoto" method="post" class="profile__form" enctype="multipart/form-data">
+                <input type="file" name="photo" value="Выбрать" />
+                <input type="submit" value="Изменить" />
+            </form>
+        </div>
+        <div class="profile__info">
+            <div>
+                Username: @Model.UserName
+            </div>
+            <div>
+                Email: @Model.Email
+            </div>
+            <div>
+                Имя: @Model.Name
+            </div>
+            <div>
+                Фамилия: @Model.Surname
+            </div>
+            <div>
+                Возраст: @Model.Age
+            </div>
+            <div>
+                Телефон: @Model.Phone
+            </div>
+        </div>
     </div>
-    <div>
-        @Model.UserName
-    </div>
-    <div>
-        @Model.Email
-    </div>
+    
 </div>
