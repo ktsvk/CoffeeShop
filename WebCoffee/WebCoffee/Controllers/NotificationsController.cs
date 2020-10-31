@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebCoffee.Data;
 using WebCoffee.Models;
 
@@ -27,6 +28,17 @@ namespace WebCoffee.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             return View(_context.Notifications.Where(x => x.To.Id == user.Id).ToList());
+        }
+        [HttpPost]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var notification = await _context.Notifications.Where(x => x.Id == id).FirstOrDefaultAsync();
+            if (notification != null)
+            {
+                _context.Notifications.Remove(notification);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public async Task<ActionResult> Check(int id)

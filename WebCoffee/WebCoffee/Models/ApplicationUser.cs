@@ -13,5 +13,6 @@ namespace WebCoffee.Models
         public int Age { get; set; }
         public int Phone { get; set; }
         public FileModel Photo { get; set; }
+        public bool Deleted { get; set; }
     }
 }

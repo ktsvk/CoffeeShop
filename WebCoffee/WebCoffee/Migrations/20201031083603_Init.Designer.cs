@@ -10,7 +10,7 @@ using WebCoffee.Data;
 namespace WebCoffee.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201030081307_Init")]
+    [Migration("20201031083603_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -166,6 +166,9 @@ namespace WebCoffee.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")

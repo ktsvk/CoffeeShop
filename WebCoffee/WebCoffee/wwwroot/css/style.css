@@ -267,15 +267,6 @@ a, a:hover{
 .bag__item__product-name{
 
 }
-/* Notifications */
-.notification {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.07);
-    margin-bottom: 20px;
-    display: flex;
-    padding: 30px 20px;
-    justify-content: space-between;
-    border-radius: 5px;
-}
 
 /* Manage */
 

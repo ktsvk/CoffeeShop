@@ -107,7 +107,8 @@ namespace WebCoffee.Migrations
                     Surname = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false),
                     Phone = table.Column<int>(nullable: false),
-                    PhotoId = table.Column<int>(nullable: true)
+                    PhotoId = table.Column<int>(nullable: true),
+                    Deleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

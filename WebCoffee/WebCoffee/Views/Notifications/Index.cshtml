@@ -17,6 +17,9 @@
             <div>
                 @item.From
             </div>
+            <form asp-controller="Notifications" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                <input class="notic_cross" type="submit" value="" />
+            </form>
         </div>
     }
 </div>

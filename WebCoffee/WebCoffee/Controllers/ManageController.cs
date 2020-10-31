@@ -33,19 +33,32 @@ namespace WebCoffee.Controllers
             _hostEnvironment = hostEnvironment;
         }
         [HttpGet]
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string id)
         {
-            var identityUser = await _userManager.GetUserAsync(User);
-            var user = await _context.Users.Where(x => x.Id == identityUser.Id).Include(x => x.Photo).FirstOrDefaultAsync();
-            return View(user);
+            if(id == null)
+            {
+                var identityUser = await _userManager.GetUserAsync(User);
+                var user = await _context.Users.Where(x => x.Id == identityUser.Id).Include(x => x.Photo).FirstOrDefaultAsync();
+                if (user != null)
+                    return View(user);
+            }
+            else
+            {
+                var identityUser = await _userManager.FindByIdAsync(id);
+                var user = await _context.Users.Where(x => x.Id == identityUser.Id).Include(x => x.Photo).FirstOrDefaultAsync();
+                if(user != null)
+                    return View(user);
+            }
+            return RedirectToAction("Index", "Home");
         }
-        [HttpGet]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Profile(string id)
+        [HttpPost]
+        public async Task<ActionResult> ChangeInfo(string name, string surname, int age, string phone)
         {
-            var identityUser = await _userManager.FindByIdAsync(id);
-            var user = await _context.Users.Where(x => x.Id == identityUser.Id).Include(x => x.Photo).FirstOrDefaultAsync();
-            return View(user);
+            if(name != "")
+            {
+
+            }
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public async Task<ActionResult> ChangePhoto(IFormFile photo)

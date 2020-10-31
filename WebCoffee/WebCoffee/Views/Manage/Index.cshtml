@@ -13,24 +13,32 @@
             </form>
         </div>
         <div class="profile__info">
-            <div>
-                Username: @Model.UserName
-            </div>
-            <div>
-                Email: @Model.Email
-            </div>
-            <div>
-                Имя: @Model.Name
-            </div>
-            <div>
-                Фамилия: @Model.Surname
-            </div>
-            <div>
-                Возраст: @Model.Age
-            </div>
-            <div>
-                Телефон: @Model.Phone
-            </div>
+            <form asp-controller="Manage" asp-action="ChangeInfo" method="post">
+                <div>
+                    Username: @Model.UserName
+                </div>
+                <div>
+                    Email: @Model.Email
+                </div>
+                <div>
+                    Имя: @Model.Name
+                    <input class="change_info_input" type="text" name="name" />
+                </div>
+                <div>
+                    Фамилия: @Model.Surname
+                    <input class="change_info_input" type="text" name="surname" />
+                </div>
+                <div>
+                    Возраст: @Model.Age
+                    <input class="change_info_input" type="number" name="age" />
+                </div>
+                <div>
+                    Телефон: @Model.Phone
+                    <input class="change_info_input" type="tel" name="phone" />
+                </div>
+                <button id="change_info_btn">Редактировать</button>
+                <input id="change_info_submit_btn" type="submit" value="Сохранить" />
+            </form>
         </div>
     </div>
     

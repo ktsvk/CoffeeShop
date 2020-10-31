@@ -70,6 +70,9 @@ namespace WebCoffee.Controllers
         {
             if(ModelState.IsValid)
             {
+                var user = await _userManager.FindByNameAsync(model.UserName);
+                if (user.Deleted)
+                    return View(model);
                 var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe = false, false);
                 if(result.Succeeded)
                 {
