@@ -15,6 +15,11 @@ namespace WebCoffee.Models
         public string Date { get; set; }
         public string Time { get; set; }
         public float Price { get; set; }
+        public bool Completed { get; set; }
+        public bool Taken { get; set; }
+        public string DateOfTaking { get; set; }
+        public string TimeOfTaking { get; set; }
+        public ApplicationUser Employee { get; set; }
         public ApplicationUser User { get; set; }
         public List<Purchase> Purchases { get; set; }
     }

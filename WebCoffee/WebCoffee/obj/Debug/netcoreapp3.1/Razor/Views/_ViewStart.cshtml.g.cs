@@ -21,20 +21,27 @@ using WebCoffee;
 #nullable disable
 #nullable restore
 #line 2 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
-using WebCoffee.Models;
+using WebCoffee.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
+using WebCoffee.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f4491263b5d672e8d5db23fa9fd2ba58b6c52c4a", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0135a6dd91a2e12aa342c0ec7c90909f2a03962f", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

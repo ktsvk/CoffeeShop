@@ -70,7 +70,13 @@ namespace WebCoffee
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    ctx.Context.Response.Headers.Add("Cache-Control", "public,max-age=0");
+                }
+            });
 
             app.UseRouting();
 

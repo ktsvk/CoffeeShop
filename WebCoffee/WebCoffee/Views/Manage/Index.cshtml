@@ -1,45 +1,71 @@
-﻿@{
-    ViewData["Title"] = "Account";
+﻿@model ApplicationUser
+@inject UserManager<ApplicationUser> userManager
+@{
+    ViewData["Title"] = "Профиль";
+    var user = await userManager.GetUserAsync(User);
 }
-@model ApplicationUser
 
-<div class="main-page">
-    <div class="profile">
-        <div class="profile__photo">
-            <img src="@Url.Content(Model.Photo.Path + Model.Photo.Name)" alt="img" />
-            <form asp-controller="Manage" asp-action="ChangePhoto" method="post" class="profile__form" enctype="multipart/form-data">
-                <input type="file" name="photo" value="Выбрать" />
-                <input type="submit" value="Изменить" />
-            </form>
+<div class="page">
+    <div class="profile_page">
+        <div class="sidebar">
+            <div>
+                <a asp-controller="Manage" asp-action="Index" asp-route-id="@user.Id" class="sidebar_active">Мой профиль</a>
+            </div>
+            <div>
+                <a asp-controller="Purchases" asp-action="Index">Мои заказы</a>
+            </div>
+            <div>
+                <a asp-controller="Notifications" asp-action="Index">Уведомления</a>
+            </div>
         </div>
-        <div class="profile__info">
-            <form asp-controller="Manage" asp-action="ChangeInfo" method="post">
-                <div>
-                    Username: @Model.UserName
+        <div class="profile_page_content">
+            <div class="profile_page_header">Профиль</div>
+            <div class="profile">
+                @if (User.IsInRole("Employee"))
+                {
+                    <div class="profile_rating">@user.Rating</div>
+                }
+                <div class="profile__photo">
+                    <img src="@Url.Content(Model.Photo.Path + Model.Photo.Name)" alt="img" />
+                    <form asp-controller="Manage" asp-action="ChangePhoto" method="post" class="profile__form" enctype="multipart/form-data">
+                        <input type="file" name="photo" value="Выбрать" />
+                        <input type="submit" value="Изменить" />
+                    </form>
                 </div>
-                <div>
-                    Email: @Model.Email
+                <div class="profile__info">
+                    <form asp-controller="Manage" asp-action="ChangeInfo" method="post">
+                        <div>
+                            Username: @Model.UserName
+                        </div>
+                        <div>
+                            Email: @Model.Email
+                        </div>
+                        <div>
+                            Имя: @Model.Name
+                            <input class="change_info_input" type="text" name="Name" value="@Model.Name" />
+                        </div>
+                        <div>
+                            Фамилия: @Model.Surname
+                            <input class="change_info_input" type="text" name="Surname" value="@Model.Surname" />
+                        </div>
+                        <div>
+                            Возраст: @Model.Age
+                            <input class="change_info_input" type="number" name="Age" value="@Model.Age" />
+                        </div>
+                        <div>
+                            Телефон: @Model.Phone
+                            <input class="change_info_input" type="number" name="Phone" value="@Model.Phone" />
+                        </div>
+                        <div>
+                            Адрес доставки: @Model.Address
+                            <input class="change_info_input" type="text" name="Address" value="@Model.Address" />
+                        </div>
+                        <button id="change_info_btn">Редактировать</button>
+                        <button id="change_info_btn_cancel">Отмена</button>
+                        <input id="change_info_submit_btn" type="submit" value="Сохранить" />
+                    </form>
                 </div>
-                <div>
-                    Имя: @Model.Name
-                    <input class="change_info_input" type="text" name="name" />
-                </div>
-                <div>
-                    Фамилия: @Model.Surname
-                    <input class="change_info_input" type="text" name="surname" />
-                </div>
-                <div>
-                    Возраст: @Model.Age
-                    <input class="change_info_input" type="number" name="age" />
-                </div>
-                <div>
-                    Телефон: @Model.Phone
-                    <input class="change_info_input" type="tel" name="phone" />
-                </div>
-                <button id="change_info_btn">Редактировать</button>
-                <input id="change_info_submit_btn" type="submit" value="Сохранить" />
-            </form>
+            </div>
         </div>
     </div>
-    
 </div>

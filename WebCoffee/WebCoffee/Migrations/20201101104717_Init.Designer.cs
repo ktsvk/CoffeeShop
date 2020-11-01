@@ -10,7 +10,7 @@ using WebCoffee.Data;
 namespace WebCoffee.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201031083603_Init")]
+    [Migration("20201101104717_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -160,15 +160,18 @@ namespace WebCoffee.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Age")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Banned")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
@@ -197,8 +200,8 @@ namespace WebCoffee.Migrations
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
@@ -207,6 +210,9 @@ namespace WebCoffee.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int?>("PhotoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
                         .HasColumnType("int");
 
                     b.Property<string>("SecurityStamp")
@@ -344,19 +350,36 @@ namespace WebCoffee.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Completed")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Date")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DateOfTaking")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployeeId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
+                    b.Property<bool>("Taken")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Time")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TimeOfTaking")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
 
                     b.HasIndex("UserId");
 
@@ -531,6 +554,10 @@ namespace WebCoffee.Migrations
 
             modelBuilder.Entity("WebCoffee.Models.Order", b =>
                 {
+                    b.HasOne("WebCoffee.Models.ApplicationUser", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId");
+
                     b.HasOne("WebCoffee.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");

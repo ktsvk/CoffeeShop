@@ -1,25 +1,48 @@
 ﻿@model List<Notification>
+@inject UserManager<ApplicationUser> userManager
+@{ 
+
+    var user = await userManager.GetUserAsync(User);
+}
 
 <div class="main-page">
-    <div>Уведомления</div>
-    @foreach (var item in Model)
-    {
-        <div class="notification">
+    <div class="profile_page">
+        <div class="sidebar">
             <div>
-                @item.Message
+                <a asp-controller="Manage" asp-action="Index" asp-route-id="@user.Id">Мой профиль</a>
             </div>
             <div>
-                @item.Date
+                <a asp-controller="Purchases" asp-action="Index">Мои заказы</a>
             </div>
             <div>
-                @item.Time
+                <a asp-controller="Notifications" asp-action="Index" class="sidebar_active">Уведомления</a>
             </div>
-            <div>
-                @item.From
-            </div>
-            <form asp-controller="Notifications" asp-action="Delete" asp-route-id="@item.Id" method="post">
-                <input class="notic_cross" type="submit" value="" />
-            </form>
         </div>
-    }
+        <div class="profile_page_content">
+            <div class="profile_page_header">Уведомления</div>
+            <div class="notifications">
+                @foreach (var item in Model)
+                {
+                    <div class="notification">
+                        <div>
+                            @item.Message
+                        </div>
+                        <div>
+                            @item.Date
+                        </div>
+                        <div>
+                            @item.Time
+                        </div>
+                        <div>
+                            @item.From
+                        </div>
+                        <form asp-controller="Notifications" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                            <input class="notic_cross" type="submit" value="" />
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+        
+    </div>
 </div>

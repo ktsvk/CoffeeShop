@@ -106,9 +106,11 @@ namespace WebCoffee.Migrations
                     Name = table.Column<string>(nullable: true),
                     Surname = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false),
-                    Phone = table.Column<int>(nullable: false),
+                    Phone = table.Column<string>(nullable: true),
                     PhotoId = table.Column<int>(nullable: true),
-                    Deleted = table.Column<bool>(nullable: false)
+                    Address = table.Column<string>(nullable: true),
+                    Rating = table.Column<int>(nullable: false),
+                    Banned = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -274,11 +276,22 @@ namespace WebCoffee.Migrations
                     Date = table.Column<string>(nullable: true),
                     Time = table.Column<string>(nullable: true),
                     Price = table.Column<float>(nullable: false),
+                    Completed = table.Column<bool>(nullable: false),
+                    Taken = table.Column<bool>(nullable: false),
+                    DateOfTaking = table.Column<string>(nullable: true),
+                    TimeOfTaking = table.Column<string>(nullable: true),
+                    EmployeeId = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_AspNetUsers_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Orders_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -424,6 +437,11 @@ namespace WebCoffee.Migrations
                 name: "IX_Notifications_ToId",
                 table: "Notifications",
                 column: "ToId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_EmployeeId",
+                table: "Orders",
+                column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_UserId",

@@ -10,9 +10,6 @@
         var user = context.Users.Where(x => x.Id == identityUser.Id).Include(x => x.Photo).FirstOrDefault();
         
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Notifications" asp-action="Index">Уведомления @context.Notifications.Where(x => x.To.Id == user.Id && x.Status == false).Count()</a>
-        </li>
-        <li class="nav-item">
             <a class="header__profile" asp-area="" asp-controller="Manage" asp-action="Index" asp-route-id="@user.Id">
                 @if(context.Notifications.Where(x => x.To.Id == user.Id && x.Status == false).Count() > 0)
                 {

@@ -20,7 +20,14 @@ using WebCoffee;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
+#line 2 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
+using WebCoffee.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
@@ -34,7 +41,7 @@ using WebCoffee.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b7127ec2d0b5d0426c9d3a59edb6f13d2ade4056", @"/Views/Menu/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f4491263b5d672e8d5db23fa9fd2ba58b6c52c4a", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0135a6dd91a2e12aa342c0ec7c90909f2a03962f", @"/Views/_ViewImports.cshtml")]
     public class Views_Menu_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Product>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "get", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -77,7 +84,7 @@ using WebCoffee.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<div class=\"main-page\">\r\n    <div class=\"page-header\">Меню</div>\r\n    <div class=\"menu-filter\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b7127ec2d0b5d0426c9d3a59edb6f13d2ade40565247", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b7127ec2d0b5d0426c9d3a59edb6f13d2ade40565427", async() => {
                 WriteLiteral("\r\n            <select name=\"category\">\r\n");
 #nullable restore
 #line 13 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\Menu\Index.cshtml"
@@ -88,7 +95,7 @@ using WebCoffee.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b7127ec2d0b5d0426c9d3a59edb6f13d2ade40565840", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b7127ec2d0b5d0426c9d3a59edb6f13d2ade40566020", async() => {
 #nullable restore
 #line 15 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\Menu\Index.cshtml"
                                             Write(category.Name);
@@ -156,7 +163,7 @@ using WebCoffee.Models;
 #line hidden
 #nullable disable
             WriteLiteral("            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b7127ec2d0b5d0426c9d3a59edb6f13d2ade40569880", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b7127ec2d0b5d0426c9d3a59edb6f13d2ade405610060", async() => {
                 WriteLiteral("\r\n                <div class=\"product-title\">\r\n                    ");
 #nullable restore
 #line 26 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\Menu\Index.cshtml"

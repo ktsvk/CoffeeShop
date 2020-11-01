@@ -102,3 +102,4 @@ E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\stati
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.genruntimeconfig.cache
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Users\Details.cshtml.g.cs
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
+E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Purchases\Job.cshtml.g.cs

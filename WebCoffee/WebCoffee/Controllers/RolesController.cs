@@ -49,7 +49,7 @@ namespace WebCoffee.Controllers
         public async Task<ActionResult> Delete(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
-            if(role != null && role.Name != "Admin" && role.Name != "User")
+            if(role != null && role.Name != "Admin" && role.Name != "User" && role.Name != "Employee")
             {
                 var result = await _roleManager.DeleteAsync(role);
             }

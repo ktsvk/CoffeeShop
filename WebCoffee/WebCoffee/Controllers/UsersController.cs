@@ -31,23 +31,23 @@ namespace WebCoffee.Controllers
             return View(_context.Users.Where(x => x.Id != myself.Id).Include(x => x.Photo).AsAsyncEnumerable());
         }
         [HttpPost]
-        public async Task<ActionResult> Delete(string id)
+        public async Task<ActionResult> Ban(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
             if(user != null)
             {
-                user.Deleted = true;
+                user.Banned = true;
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public async Task<ActionResult> UnDelete(string id)
+        public async Task<ActionResult> Unban(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user != null)
             {
-                user.Deleted = false;
+                user.Banned = false;
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index");

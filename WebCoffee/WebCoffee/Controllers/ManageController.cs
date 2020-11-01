@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebCoffee.Data;
 using WebCoffee.Models;
+using WebCoffee.ViewModels;
 
 namespace WebCoffee.Controllers
 {
@@ -52,11 +53,17 @@ namespace WebCoffee.Controllers
             return RedirectToAction("Index", "Home");
         }
         [HttpPost]
-        public async Task<ActionResult> ChangeInfo(string name, string surname, int age, string phone)
+        public async Task<ActionResult> ChangeInfo(ChangeInfoViewModel model)
         {
-            if(name != "")
+            if (ModelState.IsValid)
             {
-
+                var user = await _userManager.GetUserAsync(User);
+                user.Name = model.Name;
+                user.Surname = model.Surname;
+                user.Age = model.Age;
+                user.Phone = model.Phone;
+                user.Address = model.Address;
+                await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index");
         }

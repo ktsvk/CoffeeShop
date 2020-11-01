@@ -2,7 +2,7 @@
 @inject ApplicationDbContext context
 @inject UserManager<ApplicationUser> userManager
 @{
-    ViewData["Title"] = "Заказы";
+    ViewData["Title"] = "Job";
     var user = await userManager.GetUserAsync(User);
 } 
 
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="profile_page_content">
-            <div class="profile_page_header">Ваши заказы</div>
+            <div class="profile_page_header">Взять заказ</div>
             <div class="orders">
                 @foreach (var order in Model)
                 {
@@ -33,7 +33,7 @@
                                 @order.Time
                             </div>
                             <div>
-                                @(order.Completed?"Выполнен":"Не выполнен")
+                                @order.User.Name
                             </div>
                         </div>
                         <div class="purchases">
@@ -60,12 +60,11 @@
                                 </div>
                             }
                         </div>
-                        @if(order.Taken && !order.Completed)
-                        {
-                            <form asp-controller="Purchases" asp-action="AcceptOrder" asp-route-id="@order.Id" method="post">
-                                <input type="submit" value="Подтвердить заказ" />
+                        <div class="take_order">
+                            <form asp-controller="Purchases" asp-action="TakeOrder" asp-route-id="@order.Id" method="post">
+                                <input type="submit" value="Взяться за заказ" />
                             </form>
-                        }
+                        </div>
                     </div>
                 }
             </div>
