@@ -1,39 +1,56 @@
-﻿@{
+﻿@model IEnumerable<ApplicationUser>
+@inject UserManager<ApplicationUser> userManager
+
+@{
     ViewData["Title"] = "Account";
 }
-@model IEnumerable<ApplicationUser>
 
 <div class="main-page">
     <div class="users">
         @foreach (var user in Model)
         {
-            <div class="user @(user.Banned?"deleted_user":"")">
-                <a asp-controller="Manage" asp-action="Index" asp-route-id="@user.Id">
-                    Email: @user.Email
-                </a>
-                <div>
-                    Name: @user.Name
-                </div>
-                @if (user.Banned)
+        <div class="user @(user.Banned?"deleted_user":"")">
+            <a asp-controller="Manage" asp-action="Index" asp-route-id="@user.Id">
+                Email: @user.Email
+            </a>
+            <div>
+                Name: @user.Name
+            </div>
+            @if (user.Banned)
+            {
+                <form method="post" asp-controller="Users" asp-action="Unban" asp-route-id="@user.Id">
+                    <input type="submit" value="Разблокировать" />
+                </form>
+            }
+            else
+            {
+                <form method="post" asp-controller="Users" asp-action="Ban" asp-route-id="@user.Id">
+                    <input type="submit" value="Заблокировать" />
+                </form>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                if (await userManager.IsInRoleAsync(user, "Employee"))
                 {
-                    <form method="post" asp-controller="Users" asp-action="Unban" asp-route-id="@user.Id">
-                        <input type="submit" value="Разблокировать" />
+                    <form method="post" asp-controller="Users" asp-action="SetEmoloyee" asp-route-id="@user.Id">
+                        <input type="submit" value="Уволить" />
                     </form>
                 }
                 else
                 {
-                    <form method="post" asp-controller="Users" asp-action="Ban" asp-route-id="@user.Id">
-                        <input type="submit" value="Заблокировать" />
+                    <form method="post" asp-controller="Users" asp-action="SetEmoloyee" asp-route-id="@user.Id">
+                        <input type="submit" value="Сделать сотрудником" />
                     </form>
                 }
-                <form id="sendmess_form" method="post" asp-controller="Users" asp-action="SendMessage" asp-route-id="@user.Id">
-                    <input type="text" name="message" />
-                    <input type="submit" value="Отправить" />
-                </form>
-                <button id="sendmess">
-                    Отправить сообщение
-                </button>
-            </div>
+            }
+            <form id="sendmess_form" method="post" asp-controller="Users" asp-action="SendMessage" asp-route-id="@user.Id">
+                <input type="text" name="message" />
+                <input type="submit" value="Отправить" />
+            </form>
+            <button id="sendmess">
+                Отправить сообщение
+            </button>
+        </div>
         }
     </div>
     

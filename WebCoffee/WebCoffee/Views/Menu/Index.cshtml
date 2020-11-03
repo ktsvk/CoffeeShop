@@ -1,8 +1,12 @@
 ﻿@using WebCoffee.Models
-@model List<Product> 
+@model List<Product>
 @inject WebCoffee.Data.ApplicationDbContext context
+@inject UserManager<ApplicationUser> userManager
+@inject SignInManager<ApplicationUser> signInManager
 @{
     ViewData["Title"] = "Menu";
+    var authorize = signInManager.IsSignedIn(User);
+    var user = await userManager.GetUserAsync(User);
 }
 
 <div class="main-page">
@@ -18,10 +22,22 @@
             <input type="submit" value="Применить" />
         </form>
     </div>
+    @if (authorize && await userManager.IsInRoleAsync(user, "Admin"))
+    {
+        <div>
+            <a asp-controller="Admin" asp-action="AddProduct">Добавить продукт</a>
+        </div>
+    }
     <div class="menu-products">
         @foreach (var product in Model)
         {
-            <a href="~/Menu/Details/@product.Id" class="product-item">
+            <a href="~/Menu/Details/@product.Id" class="product_item">
+                @if (authorize && await userManager.IsInRoleAsync(user, "Admin"))
+                {
+                    <form asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@product.Id" method="post">
+                        <input type="submit" value="" class="delete_product"/>
+                    </form>
+                }
                 <div class="product-title">
                     @product.Category.Name "@product.Name"
                 </div>

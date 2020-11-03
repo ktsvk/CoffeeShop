@@ -1,0 +1,32 @@
+﻿@inject ApplicationDbContext context
+@{
+    var categories = context.Categories.ToList();
+}
+
+<div class="page">
+    <div>
+        <form asp-controller="Admin" asp-action="AddProduct" method="post" enctype="multipart/form-data">
+            <div>
+                Название:
+                <input type="text" name="Name" value="" />
+            </div>
+            <div>
+                Цена:
+                <input type="number" name="Price" value="" />
+            </div>
+            <div>
+                Описание:
+                <input type="text" name="Description" value="" />
+            </div>
+            <div>
+                Фотография:
+                <input type="file" name="Photo" value="" />
+            </div>
+            <div>
+                Категория:
+                <input type="text" name="Category" value="" />
+            </div>
+            <input type="submit" value="Сохранить" />
+        </form>
+    </div>
+</div>

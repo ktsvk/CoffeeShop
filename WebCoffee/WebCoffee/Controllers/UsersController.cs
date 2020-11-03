@@ -52,6 +52,21 @@ namespace WebCoffee.Controllers
             }
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public async Task<ActionResult> SetEmoloyee(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if(await _userManager.IsInRoleAsync(user, "Employee"))
+            {
+                await _userManager.RemoveFromRoleAsync(user, "Employee");
+            }
+            else
+            {
+                await _userManager.AddToRoleAsync(user, "Employee");
+            }
+            return RedirectToAction("Index");
+        }
         [HttpPost]
         public async Task<ActionResult> SendMessage(string id, string message)
         {

@@ -115,27 +115,6 @@ a, a:hover{
     align-items: center;
     justify-content: flex-start;
 }
-.product-item{
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    margin: 10px;
-    width: 250px;
-    height: 280px;
-}
-.product-item:hover{
-    background-color: #fbfbfb;
-    transform: scale(1.01);
-    transition: 0.3s;
-}
-.product-item:hover .product-img img{
-    transform: scale(1.03);
-    transition: 0.3s;
-}
 .product-img {
     height: 200px;
     width: 100%;

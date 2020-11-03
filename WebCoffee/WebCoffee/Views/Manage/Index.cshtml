@@ -23,7 +23,7 @@
             <div class="profile">
                 @if (User.IsInRole("Employee"))
                 {
-                    <div class="profile_rating">@user.Rating</div>
+                    <div class="profile_rating">Рейтинг: @user.Rating</div>
                 }
                 <div class="profile__photo">
                     <img src="@Url.Content(Model.Photo.Path + Model.Photo.Name)" alt="img" />
