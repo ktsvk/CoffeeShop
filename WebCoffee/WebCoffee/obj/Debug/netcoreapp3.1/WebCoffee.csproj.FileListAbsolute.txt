@@ -1,4 +1,3 @@
-E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csprojAssemblyReference.cache
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.AssemblyInfoInputs.cache
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.AssemblyInfo.cs
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csproj.CoreCompileInputs.cache
@@ -104,3 +103,4 @@ E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Purchases\Job.cshtml.g.cs
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddProduct.cshtml.g.cs
+E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csprojAssemblyReference.cache

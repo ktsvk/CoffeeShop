@@ -10,7 +10,7 @@ using WebCoffee.Data;
 namespace WebCoffee.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201101104717_Init")]
+    [Migration("20201104093542_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -425,6 +425,9 @@ namespace WebCoffee.Migrations
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
+
+                    b.Property<int>("PurchaseCount")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

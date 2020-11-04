@@ -35,13 +35,20 @@ using WebCoffee.Models;
 #nullable disable
 #nullable restore
 #line 4 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
+using WebCoffee.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"966753acc0f741be7993badc240ee671e4ee094e", @"/Views/Notifications/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0135a6dd91a2e12aa342c0ec7c90909f2a03962f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"944a6052c9965c72a4b3b491475688305b993881", @"/Views/_ViewImports.cshtml")]
     public class Views_Notifications_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Notification>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Manage", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -87,7 +94,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<div class=\"main-page\">\r\n    <div class=\"profile_page\">\r\n        <div class=\"sidebar\">\r\n            <div>\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "966753acc0f741be7993badc240ee671e4ee094e6300", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "966753acc0f741be7993badc240ee671e4ee094e6486", async() => {
                 WriteLiteral("Мой профиль");
             }
             );
@@ -120,7 +127,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            </div>\r\n            <div>\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "966753acc0f741be7993badc240ee671e4ee094e8748", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "966753acc0f741be7993badc240ee671e4ee094e8934", async() => {
                 WriteLiteral("Мои заказы");
             }
             );
@@ -138,7 +145,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            </div>\r\n            <div>\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "966753acc0f741be7993badc240ee671e4ee094e10172", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "966753acc0f741be7993badc240ee671e4ee094e10358", async() => {
                 WriteLiteral("Уведомления");
             }
             );
@@ -198,7 +205,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                        </div>\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "966753acc0f741be7993badc240ee671e4ee094e13511", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "966753acc0f741be7993badc240ee671e4ee094e13697", async() => {
                 WriteLiteral("\r\n                            <input class=\"notic_cross\" type=\"submit\"");
                 BeginWriteAttribute("value", " value=\"", 1523, "\"", 1531, 0);
                 EndWriteAttribute();

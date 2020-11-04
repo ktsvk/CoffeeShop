@@ -1,6 +1,5 @@
-﻿@using WebCoffee.Models
-@model List<Product>
-@inject WebCoffee.Data.ApplicationDbContext context
+﻿@model MenuViewModel
+@inject ApplicationDbContext context
 @inject UserManager<ApplicationUser> userManager
 @inject SignInManager<ApplicationUser> signInManager
 @{
@@ -12,15 +11,59 @@
 <div class="main-page">
     <div class="page-header">Меню</div>
     <div class="menu-filter">
-        <form method="get" asp-controller="Menu" asp-action="Index">
-            <select name="category">
-                @foreach (var category in context.Categories)
-                {
-                    <option value="@category.Id">@category.Name</option>
-                }
-            </select>
-            <input type="submit" value="Применить" />
+        <form asp-controller="Menu" asp-action="Index" method="get">
+            <div class="form-inline">
+                <label>Имя: </label>
+                <input name="name" value="@Model.FilterViewModel.SelectedName" class="form-control" />
+
+                <label>Компания: </label>
+                <select name="company" asp-items="Model.FilterViewModel.Categories" class="form-control"></select>
+
+                <input type="submit" value="Фильтр" class="btn btn-outline-dark" />
+            </div>
         </form>
+        <a asp-action="Index"
+           asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+           asp-route-name="@(Model.FilterViewModel.SelectedName)"
+           asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Название</a>
+        <a asp-action="Index"
+           asp-route-sortOrder="@(Model.SortViewModel.PriceSort)"
+           asp-route-name="@(Model.FilterViewModel.SelectedName)"
+           asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Цена</a>
+        <a asp-action="Index"
+           asp-route-sortOrder="@(Model.SortViewModel.PurchasesSort)"
+           asp-route-name="@(Model.FilterViewModel.SelectedName)"
+           asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Популярность</a>
+        <a asp-action="Index"
+           asp-route-sortOrder="@(Model.SortViewModel.CategorySort)"
+           asp-route-name="@(Model.FilterViewModel.SelectedName)"
+           asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Категория</a>
+        <div>
+            @if (Model.PageViewModel.HasPreviousPage)
+            {
+                <a asp-action="Index"
+                   asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)"
+                   asp-route-sortorder="@(Model.SortViewModel.Current)"
+                   class="btn  btn-outline-dark">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                    Назад
+                </a>
+            }
+            @if (Model.PageViewModel.HasNextPage)
+            {
+                <a asp-action="Index"
+                   asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)"
+                   asp-route-sortorder="@(Model.SortViewModel.Current)"
+                   class="btn btn-outline-dark">
+                    Вперед
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </a>
+            }
+        </div>
     </div>
     @if (authorize && await userManager.IsInRoleAsync(user, "Admin"))
     {
@@ -29,9 +72,9 @@
         </div>
     }
     <div class="menu-products">
-        @foreach (var product in Model)
+        @foreach (var product in Model.Products)
         {
-            <a href="~/Menu/Details/@product.Id" class="product_item">
+            <a class="product_item" asp-controller="Menu" asp-action="Details" asp-route-id="@product.Id">
                 @if (authorize && await userManager.IsInRoleAsync(user, "Admin"))
                 {
                     <form asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@product.Id" method="post">

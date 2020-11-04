@@ -90,7 +90,6 @@
 
 .product_item {
     position: relative;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -100,9 +99,11 @@
     margin: 10px;
     width: 250px;
     height: 280px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .product_item:hover {
     background-color: #fbfbfb;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     transform: scale(1.01);
     transition: 0.3s;
 }
@@ -117,4 +118,33 @@
     width: 10px;
     height: 10px;
     background-color: crimson;
+}
+
+/* Details */
+
+.detailts_inputs{
+    display: flex;
+}
+#portion1:checked ~ #portion1label {
+    border: 5px solid rgba(0, 0, 0, 0.7);
+}
+#portion2:checked ~ #portion2label {
+    border: 5px solid rgba(0, 0, 0, 0.7);
+}
+#portion3:checked ~ #portion3label {
+    border: 5px solid rgba(0, 0, 0, 0.7);
+}
+.details_portions_input {
+    display: none;
+}
+.details_portions_label{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.details_similar_header{
+    font-size: 28px;
 }

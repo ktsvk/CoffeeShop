@@ -1,49 +1,66 @@
-﻿@{
+﻿@model Product
+@inject ApplicationDbContext context
+@using Microsoft.EntityFrameworkCore;
+@{
     ViewData["Title"] = "Details";
+    var similar = await context.Products.Where(x => x.Category.Name == Model.Category.Name && x.Id != Model.Id)
+        .Include(x => x.Category)
+        .Include(x => x.Photo)
+        .ToListAsync();
 }
-@inject WebCoffee.Data.ApplicationDbContext context
-@model Product
 
 <div class="page">
     <div class="details-product">
-        <div class="details-product-title">
-            @Model.Category.Name "@Model.Name"
-        </div>
         <div class="details-product-body">
             <div class="details-product-img">
                 <img src="@Url.Content(Model.Photo.Path + Model.Photo.Name)" alt="img" />
             </div>
             <div class="details-product-description-wrapper">
-                <div class="details-product-price">
-                    @Model.Price BYN
+                <div class="details-product-title">
+                    @Model.Category.Name "@Model.Name"
                 </div>
                 <div class="details-product-description">
                     @Model.Description
                 </div>
-                <div>
-                    <form asp-controller="Bag" asp-action="Create" method="post">
-                        <div>
-                            <div>
-                                <label for="portion1">Маленькая</label>
-                                <input id="portion1" type="radio" name="portion" value="100" checked />
-                            </div>
-                            <div>
-                                <label for="portion2">Средняя</label>
-                                <input id="portion2" type="radio" name="portion" value="200" />
-                            </div>
-                            <div>
-                                <label for="portion3">Большая</label>
-                                <input id="portion3" type="radio" name="portion" value="300" />
-                            </div>
-                        </div>
-                        <div>
-                            <input type="number" name="amount" value="1" />
-                        </div>
-                        <input type="hidden" name="id" value="@Model.Id" />
-                        <input type="submit" value="Добавить в корзину" />
-                    </form>
-                </div>
+                <form asp-controller="Bag" asp-action="Create" method="post">
+                    <div>
+                        Порция
+                    </div>
+                    <div class="detailts_inputs">
+                        <input class="details_portions_input" id="portion1" type="radio" name="portion" value="100" checked />
+                        <input class="details_portions_input" id="portion2" type="radio" name="portion" value="200" />
+                        <input class="details_portions_input" id="portion3" type="radio" name="portion" value="300" />
+                        <label class="details_portions_label" id="portion1label" for="portion1">100</label>
+                        <label class="details_portions_label" id="portion2label" for="portion2">200</label>
+                        <label class="details_portions_label" id="portion3label" for="portion3">300</label>
+                    </div>
+                    <div>
+                        <input type="number" name="amount" value="1" />
+                    </div>
+                    <div class="details-product-price">
+                        @Model.Price BYN
+                    </div>
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <input type="submit" value="Добавить в корзину" />
+                </form>
             </div>
+        </div>
+    </div>
+    <div class="details_similar">
+        <div class="details_similar_header">Похожие</div>
+        <div class="menu-products">
+            @foreach (var product in similar)
+            {
+                <a href="~/Menu/Details/@product.Id" class="product_item">
+                    <div class="product-title">
+                        @product.Category.Name "@product.Name"
+                    </div>
+                    <div class="product-img">
+                        <span class="product-item-price">@product.Price</span>
+                        <img src="@Url.Content(product.Photo.Path + product.Photo.Name)" alt="photo" />
+                    </div>
+                </a>
+            }
         </div>
     </div>
 </div>

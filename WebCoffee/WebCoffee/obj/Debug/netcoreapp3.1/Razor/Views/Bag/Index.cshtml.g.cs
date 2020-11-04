@@ -35,13 +35,20 @@ using WebCoffee.Models;
 #nullable disable
 #nullable restore
 #line 4 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
+using WebCoffee.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3bf3ac25b86623f02b58d70729bbc0a57e53a685", @"/Views/Bag/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0135a6dd91a2e12aa342c0ec7c90909f2a03962f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"944a6052c9965c72a4b3b491475688305b993881", @"/Views/_ViewImports.cshtml")]
     public class Views_Bag_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Bag>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Purchases", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -148,7 +155,7 @@ WriteAttributeValue("", 390, Url.Content(bag.Product.Photo.Path + bag.Product.Ph
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                    </div>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bf3ac25b86623f02b58d70729bbc0a57e53a6859150", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bf3ac25b86623f02b58d70729bbc0a57e53a6859336", async() => {
                 WriteLiteral("\r\n                        <input type=\"submit\" value=\"Заказать\" />\r\n                    ");
             }
             );
@@ -185,7 +192,7 @@ WriteAttributeValue("", 390, Url.Content(bag.Product.Photo.Path + bag.Product.Ph
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bf3ac25b86623f02b58d70729bbc0a57e53a68512112", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bf3ac25b86623f02b58d70729bbc0a57e53a68512298", async() => {
                 WriteLiteral("\r\n                        <input type=\"submit\" value=\"Удалить\" />\r\n                    ");
             }
             );
@@ -230,7 +237,7 @@ WriteAttributeValue("", 390, Url.Content(bag.Product.Photo.Path + bag.Product.Ph
 #line hidden
 #nullable disable
             WriteLiteral("        </div>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bf3ac25b86623f02b58d70729bbc0a57e53a68515301", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bf3ac25b86623f02b58d70729bbc0a57e53a68515487", async() => {
                 WriteLiteral("\r\n            <input type=\"submit\" value=\"Заказать все\" />\r\n        ");
             }
             );
@@ -252,7 +259,7 @@ WriteAttributeValue("", 390, Url.Content(bag.Product.Photo.Path + bag.Product.Ph
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bf3ac25b86623f02b58d70729bbc0a57e53a68517217", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bf3ac25b86623f02b58d70729bbc0a57e53a68517403", async() => {
                 WriteLiteral("\r\n            <input type=\"submit\" value=\"Удалить все\" />\r\n        ");
             }
             );
@@ -284,7 +291,7 @@ WriteAttributeValue("", 390, Url.Content(bag.Product.Photo.Path + bag.Product.Ph
 #line hidden
 #nullable disable
             WriteLiteral("        <div>Ваша корзина пуста</div>\r\n        <div>\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bf3ac25b86623f02b58d70729bbc0a57e53a68519404", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bf3ac25b86623f02b58d70729bbc0a57e53a68519590", async() => {
                 WriteLiteral("Перейти в меню");
             }
             );

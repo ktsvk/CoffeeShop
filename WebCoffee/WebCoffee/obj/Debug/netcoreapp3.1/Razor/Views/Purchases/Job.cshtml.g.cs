@@ -35,13 +35,20 @@ using WebCoffee.Models;
 #nullable disable
 #nullable restore
 #line 4 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
+using WebCoffee.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6ea70adcd48e1dca11a412d61066d08f0f059714", @"/Views/Purchases/Job.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0135a6dd91a2e12aa342c0ec7c90909f2a03962f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"944a6052c9965c72a4b3b491475688305b993881", @"/Views/_ViewImports.cshtml")]
     public class Views_Purchases_Job : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Order>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Manage", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -87,7 +94,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<div class=\"page\">\r\n    <div class=\"profile_page\">\r\n        <div class=\"sidebar\">\r\n            <div>\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ea70adcd48e1dca11a412d61066d08f0f0597146291", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ea70adcd48e1dca11a412d61066d08f0f0597146477", async() => {
                 WriteLiteral("Мой профиль");
             }
             );
@@ -120,7 +127,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            </div>\r\n            <div>\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ea70adcd48e1dca11a412d61066d08f0f0597148733", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ea70adcd48e1dca11a412d61066d08f0f0597148919", async() => {
                 WriteLiteral("Мои заказы");
             }
             );
@@ -139,7 +146,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            </div>\r\n            <div>\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ea70adcd48e1dca11a412d61066d08f0f05971410240", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ea70adcd48e1dca11a412d61066d08f0f05971410426", async() => {
                 WriteLiteral("Уведомления");
             }
             );
@@ -265,7 +272,7 @@ WriteAttributeValue("", 1729, Url.Content(purchase.Product.Photo.Path + purchase
 #line hidden
 #nullable disable
             WriteLiteral("                        </div>\r\n                        <div class=\"take_order\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ea70adcd48e1dca11a412d61066d08f0f05971417027", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ea70adcd48e1dca11a412d61066d08f0f05971417213", async() => {
                 WriteLiteral("\r\n                                <input type=\"submit\" value=\"Взяться за заказ\" />\r\n                            ");
             }
             );

@@ -35,13 +35,20 @@ using WebCoffee.Models;
 #nullable disable
 #nullable restore
 #line 4 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
+using WebCoffee.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7da8f8026f76b84105dd1d1a4f0f66a7d32575c8", @"/Views/Users/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0135a6dd91a2e12aa342c0ec7c90909f2a03962f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"944a6052c9965c72a4b3b491475688305b993881", @"/Views/_ViewImports.cshtml")]
     public class Views_Users_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<ApplicationUser>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Manage", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -109,7 +116,7 @@ WriteAttributeValue(" ", 257, user.Banned?"deleted_user":"", 258, 32, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c87493", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c87679", async() => {
                 WriteLiteral("\r\n                Email: ");
 #nullable restore
 #line 14 "E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\Views\Users\Index.cshtml"
@@ -167,7 +174,7 @@ WriteAttributeValue(" ", 257, user.Banned?"deleted_user":"", 258, 32, false);
 #line hidden
 #nullable disable
             WriteLiteral("                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c810675", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c810861", async() => {
                 WriteLiteral("\r\n                    <input type=\"submit\" value=\"Разблокировать\" />\r\n                ");
             }
             );
@@ -214,7 +221,7 @@ WriteAttributeValue(" ", 257, user.Banned?"deleted_user":"", 258, 32, false);
 #line hidden
 #nullable disable
             WriteLiteral("                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c813876", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c814062", async() => {
                 WriteLiteral("\r\n                    <input type=\"submit\" value=\"Заблокировать\" />\r\n                ");
             }
             );
@@ -269,7 +276,7 @@ WriteAttributeValue(" ", 257, user.Banned?"deleted_user":"", 258, 32, false);
 #line hidden
 #nullable disable
             WriteLiteral("                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c817350", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c817536", async() => {
                 WriteLiteral("\r\n                        <input type=\"submit\" value=\"Уволить\" />\r\n                    ");
             }
             );
@@ -316,7 +323,7 @@ WriteAttributeValue(" ", 257, user.Banned?"deleted_user":"", 258, 32, false);
 #line hidden
 #nullable disable
             WriteLiteral("                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c820578", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c820764", async() => {
                 WriteLiteral("\r\n                        <input type=\"submit\" value=\"Сделать сотрудником\" />\r\n                    ");
             }
             );
@@ -362,7 +369,7 @@ WriteAttributeValue(" ", 257, user.Banned?"deleted_user":"", 258, 32, false);
 #line hidden
 #nullable disable
             WriteLiteral("            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c823784", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7da8f8026f76b84105dd1d1a4f0f66a7d32575c823970", async() => {
                 WriteLiteral("\r\n                <input type=\"text\" name=\"message\" />\r\n                <input type=\"submit\" value=\"Отправить\" />\r\n            ");
             }
             );

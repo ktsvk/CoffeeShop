@@ -159,6 +159,7 @@ a, a:hover{
 .details-product{
     display: flex;
     flex-direction: column;
+    padding: 40px 0;
 }
 .details-product-title {
     font-size: 32px;
@@ -172,7 +173,7 @@ a, a:hover{
     
 }
 .details-product-img img {
-    width: 400px;
+    width: 500px;
     height: auto;
     border-radius: 5px;
 }

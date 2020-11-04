@@ -424,6 +424,9 @@ namespace WebCoffee.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
+                    b.Property<int>("PurchaseCount")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");

@@ -1,17 +1,25 @@
 ﻿@using Microsoft.EntityFrameworkCore;
-@inject SignInManager<ApplicationUser> SignInManager
+@inject SignInManager<ApplicationUser> signInManager
 @inject UserManager<ApplicationUser> UserManager
-@inject WebCoffee.Data.ApplicationDbContext context
+@inject ApplicationDbContext context
+@{
+
+}
 
 <ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
+    @if (signInManager.IsSignedIn(User))
     {
         var identityUser = await UserManager.GetUserAsync(User);
-        var user = context.Users.Where(x => x.Id == identityUser.Id).Include(x => x.Photo).FirstOrDefault();
-        
+        var user = await context.Users.Where(x => x.Id == identityUser.Id)
+            .Include(x => x.Photo)
+            .FirstOrDefaultAsync();
+        var notifications = await context.Notifications.Where(x => x.To.Id == user.Id && x.Status == false).ToListAsync();
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Bag" asp-action="Index">Корзина</a>
+        </li>
         <li class="nav-item">
             <a class="header__profile" asp-area="" asp-controller="Manage" asp-action="Index" asp-route-id="@user.Id">
-                @if(context.Notifications.Where(x => x.To.Id == user.Id && x.Status == false).Count() > 0)
+                @if (notifications.Count() > 0)
                 {
                     <span class="header__profile__notifications"></span>
                 }
@@ -25,10 +33,10 @@
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Войти</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
         </li>
     }
 </ul>

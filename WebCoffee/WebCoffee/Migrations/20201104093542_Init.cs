@@ -132,6 +132,7 @@ namespace WebCoffee.Migrations
                     Name = table.Column<string>(nullable: true),
                     Price = table.Column<float>(nullable: false),
                     Description = table.Column<string>(nullable: true),
+                    PurchaseCount = table.Column<int>(nullable: false),
                     PhotoId = table.Column<int>(nullable: true),
                     CategoryId = table.Column<int>(nullable: true)
                 },
