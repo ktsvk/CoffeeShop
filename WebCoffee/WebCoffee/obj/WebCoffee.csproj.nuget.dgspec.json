@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\WebCoffee.csproj": {}
+    "E:\\poit\\WebCoffee\\WebCoffee\\WebCoffee.csproj": {}
   },
   "projects": {
-    "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\WebCoffee.csproj": {
+    "E:\\poit\\WebCoffee\\WebCoffee\\WebCoffee.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
+        "projectUniqueName": "E:\\poit\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
         "projectName": "WebCoffee",
-        "projectPath": "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
+        "projectPath": "E:\\poit\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
         "packagesPath": "C:\\Users\\Lonatelled\\.nuget\\packages\\",
-        "outputPath": "E:\\poit\\Visual Studio Projects\\WebCoffee\\WebCoffee\\obj\\",
+        "outputPath": "E:\\poit\\WebCoffee\\WebCoffee\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lonatelled\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.8, )"
@@ -47,6 +51,10 @@
               "version": "[3.1.8, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.8, )"
             },

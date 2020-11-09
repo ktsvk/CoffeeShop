@@ -1,13 +1,24 @@
 ﻿@model List<Bag>
 @inject ApplicationDbContext context
 @{
+    float totalcost = 0;
+    foreach (var bag in Model)
+    {
+        totalcost += bag.Amount * bag.Portion.Multiplier * bag.Product.Price;
+    }
     var bag_count = Model.Count();
 }
 
 <div class="main-page">
-    <div>Корзина</div>
+    <div class="current-path">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+        <a asp-controller="Bag" asp-action="Index">Корзина</a>
+    </div>
     @if (bag_count > 0)
     {
+        <div class="bag__total-cost">
+            Общая стоимость: @totalcost
+        </div>
         <div class="bag">
             @foreach (var bag in Model)
             {
@@ -16,31 +27,30 @@
                         <img src="@Url.Content(bag.Product.Photo.Path + bag.Product.Photo.Name)" alt="img" />
                     </div>
                     <div class="bag__item__product-name">
+                        <span>Название</span>
                         @bag.Product.Name
                     </div>
                     <div class="bag__item__product-price">
-                        @bag.Product.Price
+                        <span>Цена за 1 шт</span>
+                        @(bag.Product.Price * bag.Portion.Multiplier)
                     </div>
                     <div class="bag__item__amount">
+                        <span>Количество</span>
                         @bag.Amount
                     </div>
                     <div class="bag__item__portion">
+                        <span>Порция</span>
                         @bag.Portion.Size
                     </div>
-                    <form asp-controller="Purchases" asp-action="Create" asp-route-id="@bag.Id" method="post">
-                        <input type="submit" value="Заказать" />
-                    </form>
                     <form asp-controller="Bag" asp-action="Delete" asp-route-id="@bag.Id" method="post">
                         <input type="submit" value="Удалить" />
                     </form>
                 </div>
             }
         </div>
-        <form asp-controller="Purchases" asp-action="CreateAll" method="post">
-            <input type="submit" value="Заказать все" />
-        </form>
+        <a asp-controller="Purchases" asp-action="MakeOrder">Заказать</a>
         <form asp-controller="Bag" asp-action="DeleteAll" method="post">
-            <input type="submit" value="Удалить все" />
+            <input type="submit" value="Отчистить" />
         </form>
     }
     else

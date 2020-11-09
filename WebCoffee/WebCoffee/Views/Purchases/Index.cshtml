@@ -4,9 +4,14 @@
 @{
     ViewData["Title"] = "Заказы";
     var user = await userManager.GetUserAsync(User);
+
 } 
 
 <div class="page">
+    <div class="current-path">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+        <a asp-controller="Purchases" asp-action="Index">Заказы</a>
+    </div>
     <div class="profile_page">
         <div class="sidebar">
             <div>
@@ -33,7 +38,14 @@
                                 @order.Time
                             </div>
                             <div>
-                                @(order.Completed?"Выполнен":"Не выполнен")
+                                @{
+                                    float totalcost = 0;
+                                    foreach (var purchase in order.Purchases)
+                                    {
+                                        totalcost += purchase.Amount * purchase.Product.Price * purchase.Portion.Multiplier;
+                                    }
+                                }
+                                Общая стоимость: @totalcost
                             </div>
                         </div>
                         <div class="purchases">
@@ -48,7 +60,7 @@
                                             @purchase.Product.Category.Name "@purchase.Product.Name"
                                         </div>
                                         <div class="purchase__price">
-                                            Цена: @purchase.Product.Price BYN
+                                            Цена: @(purchase.Product.Price * purchase.Portion.Multiplier) BYN за 1 шт
                                         </div>
                                     </div>
                                     <div class="purchase__amount">
@@ -60,7 +72,7 @@
                                 </div>
                             }
                         </div>
-                        @if(order.Taken && !order.Completed)
+                        @if (order.Taken && !order.Completed)
                         {
                             <form asp-controller="Purchases" asp-action="AcceptOrder" asp-route-id="@order.Id" method="post">
                                 <input type="submit" value="Подтвердить заказ" />

@@ -67,6 +67,7 @@ namespace WebCoffee.Controllers
                     break;
             }
 
+
             var count = await products.CountAsync();
             var items = await products.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
 

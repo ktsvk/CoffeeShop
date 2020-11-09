@@ -27,8 +27,7 @@ namespace WebCoffee.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    NormalizedName = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -56,7 +55,8 @@ namespace WebCoffee.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
-                    Size = table.Column<int>(nullable: false)
+                    Size = table.Column<int>(nullable: false),
+                    Multiplier = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -107,9 +107,11 @@ namespace WebCoffee.Migrations
                     Surname = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false),
                     Phone = table.Column<string>(nullable: true),
+                    Gender = table.Column<int>(nullable: false),
                     PhotoId = table.Column<int>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: false),
+                    Discount = table.Column<float>(nullable: false),
                     Banned = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -276,11 +278,11 @@ namespace WebCoffee.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<string>(nullable: true),
                     Time = table.Column<string>(nullable: true),
-                    Price = table.Column<float>(nullable: false),
                     Completed = table.Column<bool>(nullable: false),
                     Taken = table.Column<bool>(nullable: false),
                     DateOfTaking = table.Column<string>(nullable: true),
                     TimeOfTaking = table.Column<string>(nullable: true),
+                    Delivery = table.Column<bool>(nullable: false),
                     EmployeeId = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: true)
                 },

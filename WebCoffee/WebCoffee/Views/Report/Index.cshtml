@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Order>
+@inject UserManager<ApplicationUser> userManager
+@{
+    ViewData["Title"] = "Отчет";
+    var user = await userManager.GetUserAsync(User);
+    float totalamount = 0;
+    float totalsum = 0;
+    foreach (var order in Model)
+    {
+        totalamount += order.Purchases.Sum(x => x.Amount);
+        totalsum += order.Purchases.Sum(x => x.Amount * x.Portion.Multiplier * x.Product.Price);
+    }
+}
+
+<div class="page">
+    <div class="current-path">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+        <a asp-controller="Report" asp-action="Index">Отчет</a>
+    </div>
+    <div class="profile_page">
+        <div class="profile_page_content">
+            <div class="report">
+                <div class="report-header">
+                    Report
+                </div>
+                <div class="report-body">
+                    <div>
+                        Продано товара: @totalamount
+                    </div>
+                    <div>
+                        На сумму: @totalsum
+                    </div>
+                    <div>
+                        Всего заказов: @Model.Count()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

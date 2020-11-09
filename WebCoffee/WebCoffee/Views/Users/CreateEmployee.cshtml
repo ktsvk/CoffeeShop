@@ -1,0 +1,45 @@
+﻿@model WebCoffee.ViewModels.Users.CreateEmployeeViewModel
+@inject UserManager<ApplicationUser> userManager
+@{
+    ViewData["Title"] = "Account";
+}
+
+<div class="main-page">
+    <div>
+        Добавить сотрудника
+    </div>
+    <div class="create-employee">
+        <form asp-controller="Users" asp-action="CreateEmployee" method="post">
+            <div>
+                <span>Имя</span>
+                <input type="text" name="Name" value="" />
+            </div>
+            <div>
+                <span>Фамилия</span>
+                <input type="text" name="Surname" value="" />
+            </div>
+            <div>
+                <span>Возраст</span>
+                <input type="number" name="Age" value="" />
+            </div>
+            <div>
+                <span>Пол</span>
+                <input type="radio" name="Gender" value="Male" />
+                <input type="radio" name="Gender" value="Female" />
+            </div>
+            <div>
+                <span>Адрес</span>
+                <input type="text" name="Address" value="" />
+            </div>
+            <div>
+                <span>Телефон</span>
+                <input type="text" name="Phone" value="" />
+            </div>
+            <div>
+                <input type="submit" value="Добавить" />
+            </div>
+        </form>
+        
+    </div>
+    
+</div>

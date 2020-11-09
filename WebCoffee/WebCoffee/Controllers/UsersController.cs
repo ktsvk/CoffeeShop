@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebCoffee.Data;
 using WebCoffee.Models;
+using WebCoffee.ViewModels.Users;
 
 namespace WebCoffee.Controllers
 {
@@ -52,7 +53,6 @@ namespace WebCoffee.Controllers
             }
             return RedirectToAction("Index");
         }
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult> SetEmoloyee(string id)
         {
@@ -79,6 +79,28 @@ namespace WebCoffee.Controllers
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public async Task<ActionResult> CreateEmployee()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> CreateEmployee(CreateEmployeeViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = new ApplicationUser
+                {
+                    Name = model.Name,
+                    Surname = model.Surname,
+                    Age = model.Age,
+                    Address = model.Address,
+                    Phone = model.Phone
+                };
+                //_userManager.CreateAsync();
+            }
+            return View(model);
         }
     }
 }

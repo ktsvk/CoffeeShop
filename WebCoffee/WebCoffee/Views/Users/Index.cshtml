@@ -6,6 +6,9 @@
 }
 
 <div class="main-page">
+    <div>
+        <a asp-controller="Users" asp-action="CreateEmployee">Добавить сотрудника</a>
+    </div>
     <div class="users">
         @foreach (var user in Model)
         {

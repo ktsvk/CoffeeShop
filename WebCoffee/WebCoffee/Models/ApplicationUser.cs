@@ -12,9 +12,11 @@ namespace WebCoffee.Models
         public string Surname { get; set; }
         public int Age { get; set; }
         public string Phone { get; set; }
+        public Gender Gender { get; set; }
         public FileModel Photo { get; set; }
         public string Address { get; set; }
         public int Rating { get; set; }
+        public float Discount { get; set; }
         public bool Banned { get; set; }
     }
 }

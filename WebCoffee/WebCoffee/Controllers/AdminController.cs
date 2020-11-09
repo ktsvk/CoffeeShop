@@ -50,7 +50,7 @@ namespace WebCoffee.Controllers
                 var category = await _context.Categories.Where(x => x.Name == model.Category).FirstOrDefaultAsync();
                 if(category == null)
                 {
-                    await _context.Categories.AddAsync(new Category() { Name = model.Category, NormalizedName = model.Category });
+                    await _context.Categories.AddAsync(new Category() { Name = model.Category });
                     await _context.SaveChangesAsync();
                     category = await _context.Categories.Where(x => x.Name == model.Category).FirstOrDefaultAsync();
                 }

@@ -10,7 +10,7 @@ using WebCoffee.Data;
 namespace WebCoffee.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201104093542_Init")]
+    [Migration("20201109073520_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -173,12 +173,18 @@ namespace WebCoffee.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<float>("Discount")
+                        .HasColumnType("real");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -283,9 +289,6 @@ namespace WebCoffee.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -359,11 +362,11 @@ namespace WebCoffee.Migrations
                     b.Property<string>("DateOfTaking")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Delivery")
+                        .HasColumnType("bit");
+
                     b.Property<string>("EmployeeId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
 
                     b.Property<bool>("Taken")
                         .HasColumnType("bit");
@@ -392,6 +395,9 @@ namespace WebCoffee.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<float>("Multiplier")
+                        .HasColumnType("real");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");

@@ -9,17 +9,14 @@ namespace WebCoffee.ViewModels
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "UserName")]
-        public string UserName { get; set; }
-        [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "Username")]
+        public string Username { get; set; }
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
         [Required]
-        [Compare("Password", ErrorMessage = "Passwords do not match")]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают!")]
         [DataType(DataType.Password)]
         [Display(Name = "ConfirmPassword")]
         public string ConfirmPassword { get; set; }

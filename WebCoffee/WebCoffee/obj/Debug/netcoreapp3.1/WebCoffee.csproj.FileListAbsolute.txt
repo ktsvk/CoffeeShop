@@ -104,3 +104,327 @@ E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Purchases\Job.cshtml.g.cs
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddProduct.cshtml.g.cs
 E:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csprojAssemblyReference.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.pdb
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\appsettings.Development.json
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\appsettings.json
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.exe
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.StaticWebAssets.xml
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.deps.json
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.runtimeconfig.json
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.runtimeconfig.dev.json
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.pdb
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.Views.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.Views.pdb
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csprojAssemblyReference.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.AssemblyInfoInputs.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.AssemblyInfo.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorAssemblyInfo.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorAssemblyInfo.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.TagHelpers.input.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.TagHelpers.output.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorCoreGenerate.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddProduct.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Bag\Index.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Manage\Index.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Menu\Details.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Menu\Index.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Notifications\Index.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Purchases\Index.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Purchases\Job.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Users\Details.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorTargetAssemblyInfo.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorTargetAssemblyInfo.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.Views.pdb
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csproj.CopyComplete
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\staticwebassets\WebCoffee.StaticWebAssets.Manifest.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\staticwebassets\WebCoffee.StaticWebAssets.xml
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.genruntimeconfig.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csproj.CoreCompileInputs.cache
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.MvcApplicationPartsAssemblyInfo.cs
+F:\poit\Visual Studio Projects\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.MvcApplicationPartsAssemblyInfo.cache
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\appsettings.Development.json
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\appsettings.json
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.StaticWebAssets.xml
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.exe
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.deps.json
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.runtimeconfig.json
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.runtimeconfig.dev.json
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.pdb
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.Views.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.Views.pdb
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csprojAssemblyReference.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.AssemblyInfoInputs.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.AssemblyInfo.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorAssemblyInfo.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorAssemblyInfo.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.TagHelpers.input.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.TagHelpers.output.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorCoreGenerate.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddProduct.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Bag\Index.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Manage\Index.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Menu\Details.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Menu\Index.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Notifications\Index.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Purchases\Index.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Purchases\Job.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Users\Details.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorTargetAssemblyInfo.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorTargetAssemblyInfo.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.Views.pdb
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csproj.CopyComplete
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\staticwebassets\WebCoffee.StaticWebAssets.Manifest.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\staticwebassets\WebCoffee.StaticWebAssets.xml
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.dll
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.pdb
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.genruntimeconfig.cache
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\appsettings.Development.json
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\appsettings.json
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.StaticWebAssets.xml
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.exe
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.deps.json
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.runtimeconfig.json
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.runtimeconfig.dev.json
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.pdb
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.Views.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\WebCoffee.Views.pdb
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+F:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csprojAssemblyReference.cache
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.AssemblyInfoInputs.cache
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.AssemblyInfo.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csproj.CoreCompileInputs.cache
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.MvcApplicationPartsAssemblyInfo.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.MvcApplicationPartsAssemblyInfo.cache
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorAssemblyInfo.cache
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorAssemblyInfo.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.TagHelpers.input.cache
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.TagHelpers.output.cache
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorCoreGenerate.cache
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddProduct.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Bag\Index.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Manage\Index.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Menu\Details.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Menu\Index.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Notifications\Index.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Purchases\Index.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Purchases\Job.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Users\Details.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorTargetAssemblyInfo.cache
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.RazorTargetAssemblyInfo.cs
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.Views.pdb
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csproj.CopyComplete
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\staticwebassets\WebCoffee.StaticWebAssets.Manifest.cache
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\staticwebassets\WebCoffee.StaticWebAssets.xml
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.dll
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.pdb
+F:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.genruntimeconfig.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Users\CreateEmployee.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\MailKit.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\MimeKit.dll
+E:\poit\WebCoffee\WebCoffee\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.csproj.CoreCompileInputs.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.MvcApplicationPartsAssemblyInfo.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\WebCoffee.MvcApplicationPartsAssemblyInfo.cache
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Purchases\MakeOrder.cshtml.g.cs
+E:\poit\WebCoffee\WebCoffee\obj\Debug\netcoreapp3.1\Razor\Views\Report\Index.cshtml.g.cs

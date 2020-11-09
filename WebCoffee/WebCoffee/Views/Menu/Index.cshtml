@@ -9,8 +9,50 @@
 }
 
 <div class="main-page">
+    <div class="current-path">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+        <a asp-controller="Menu" asp-action="Index">Меню</a>
+    </div>
     <div class="page-header">Меню</div>
-    <div class="menu-filter">
+    <div class="options">
+        <div class="sort-wrapper">
+            <span>Сортировать:</span>
+            <div class="sort">
+                <a asp-action="Index"
+                   asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Название</a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@(Model.SortViewModel.PriceSort)"
+                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Цена</a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@(Model.SortViewModel.PurchasesSort)"
+                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Популярность</a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@(Model.SortViewModel.CategorySort)"
+                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Категория</a>
+            </div>
+        </div>
+        <div class="show-option-wrapper">
+            Показывать:
+            <div class="show-option">
+                <a asp-action="Index"
+                   asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Показывать 10</a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Показывать 20</a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Показывать 30</a>
+            </div>
+        </div>
         <form asp-controller="Menu" asp-action="Index" method="get">
             <div class="form-inline">
                 <label>Имя: </label>
@@ -22,22 +64,7 @@
                 <input type="submit" value="Фильтр" class="btn btn-outline-dark" />
             </div>
         </form>
-        <a asp-action="Index"
-           asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
-           asp-route-name="@(Model.FilterViewModel.SelectedName)"
-           asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Название</a>
-        <a asp-action="Index"
-           asp-route-sortOrder="@(Model.SortViewModel.PriceSort)"
-           asp-route-name="@(Model.FilterViewModel.SelectedName)"
-           asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Цена</a>
-        <a asp-action="Index"
-           asp-route-sortOrder="@(Model.SortViewModel.PurchasesSort)"
-           asp-route-name="@(Model.FilterViewModel.SelectedName)"
-           asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Популярность</a>
-        <a asp-action="Index"
-           asp-route-sortOrder="@(Model.SortViewModel.CategorySort)"
-           asp-route-name="@(Model.FilterViewModel.SelectedName)"
-           asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Категория</a>
+
         <div>
             @if (Model.PageViewModel.HasPreviousPage)
             {

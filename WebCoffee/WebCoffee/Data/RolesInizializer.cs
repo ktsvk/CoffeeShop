@@ -12,13 +12,13 @@ namespace WebCoffee.Data
     {
         public static async Task InizializeAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
         {
-            string email = "admin@mail.ru";
+            string login = "admin";
             string password = "admin";
 
-            string userEmail = "user@mail.ru";
+            string userlogin = "user";
             string userPassword = "user";
 
-            string employeeEmail = "employee@mail.ru";
+            string employeelogin = "employee";
             string employeePassword = "employee";
 
             var photo = await context.Files.Where(x => x.Name == "default.png" && x.Path == "/Files/Images/Users/").FirstOrDefaultAsync();
@@ -35,27 +35,27 @@ namespace WebCoffee.Data
             {
                 await roleManager.CreateAsync(new IdentityRole("Employee"));
             }
-            if (await userManager.FindByEmailAsync(email) == null)
+            if (await userManager.FindByEmailAsync(login) == null)
             {
-                var admin = new ApplicationUser { Email = email, UserName = email, Photo = photo };
+                var admin = new ApplicationUser { UserName = login, Photo = photo };
                 var result = await userManager.CreateAsync(admin, password);
                 if (result.Succeeded)
                 {
                     await userManager.AddToRoleAsync(admin, "Admin");
                 }
             }
-            if (await userManager.FindByEmailAsync(userEmail) == null)
+            if (await userManager.FindByEmailAsync(userlogin) == null)
             {
-                var user = new ApplicationUser { Email = userEmail, UserName = userEmail, Photo = photo };
+                var user = new ApplicationUser { UserName = userlogin, Photo = photo };
                 var result = await userManager.CreateAsync(user, userPassword);
                 if (result.Succeeded)
                 {
                     await userManager.AddToRoleAsync(user, "User");
                 }
             }
-            if (await userManager.FindByEmailAsync(employeeEmail) == null)
+            if (await userManager.FindByEmailAsync(employeelogin) == null)
             {
-                var employee = new ApplicationUser { Email = employeeEmail, UserName = employeeEmail, Photo = photo };
+                var employee = new ApplicationUser { UserName = employeelogin, Photo = photo };
                 var result = await userManager.CreateAsync(employee, employeePassword);
                 if (result.Succeeded)
                 {

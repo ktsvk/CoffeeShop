@@ -1,13 +1,62 @@
-﻿.page{
+﻿.current-path{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.page{
     position: relative;
 }
 .sidebar{
     min-width: 130px;
-    padding-top: 50px;
 }
 .sidebar_active{
     font-weight: 500;
 }
+
+/* Menu */
+
+.options{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sort-wrapper{
+    display: flex;
+    position: relative;
+}
+.sort {
+    display: none;
+}
+.sort-wrapper:hover .sort {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    position: absolute;
+    top: 20px;
+    background-color: white;
+    border-radius: 4px;
+    z-index: 1;
+}
+.show-option-wrapper{
+    display: flex;
+    position: relative;
+}
+.show-option {
+    display: none;
+    
+}
+.show-option-wrapper:hover .show-option {
+    display: flex;
+    padding: 10px 20px;
+    flex-direction: column;
+    position: absolute;
+    top: 20px;
+    background-color: white;
+    border-radius: 4px;
+    z-index: 1;
+    white-space: nowrap;
+}
+
 .users {
     display: flex;
     flex-direction: column;
@@ -61,7 +110,7 @@
     right: 30px;
     font-size: 20px;
 }
-.profile_page_header {
+.page-header {
     text-align: center;
     font-size: 30px;
     margin-bottom: 10px;
@@ -147,4 +196,46 @@
 }
 .details_similar_header{
     font-size: 28px;
+}
+
+/* Make order */
+.make-order-radio{
+    display: flex;
+}
+#make-order-radio1, #make-order-radio2 {
+    display: none;
+}
+#make-order-lbl1, #make-order-lbl2 {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#make-order-lbl1:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+#make-order-lbl2:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+#make-order-radio1:checked ~ #make-order-lbl1 {
+    
+    background-color: black;
+    color: white;
+}
+#make-order-radio2:checked ~ #make-order-lbl2 {
+    background-color: black;
+    color: white;
+}
+
+/* Report */
+.report{
+    display: flex;
+    flex-direction: column;
+}
+.report-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

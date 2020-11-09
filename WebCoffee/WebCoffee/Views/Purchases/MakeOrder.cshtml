@@ -1,0 +1,90 @@
+﻿@model WebCoffee.ViewModels.Orders.CreateOrderViewModel
+@inject ApplicationDbContext context
+@inject UserManager<ApplicationUser> userManager
+@{
+    ViewData["Title"] = "Сделать заказ";
+    var user = await userManager.GetUserAsync(User);
+
+} 
+
+<div class="page">
+    <div class="current-path">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+        <a asp-controller="Purchases" asp-action="Index">Заказы</a>
+        <a asp-controller="Purchases" asp-action="MakeOrder">Сделать заказ</a>
+    </div>
+    <div class="make-order-page">
+        <div class="make-order-btn">
+            <form asp-controller="Purchases" asp-action="MakeOrder" method="post">
+                <div class="make-order-radio">
+                    <input type="radio" name="Delivery" value="false" id="make-order-radio1" checked />
+                    <input type="radio" name="Delivery" value="true" id="make-order-radio2" />
+                    <label for="make-order-radio1" id="make-order-lbl1">Самовывоз</label>
+                    <label for="make-order-radio2" id="make-order-lbl2">Доставка</label>
+                </div>
+                @if (user.Name == null)
+                {
+                    <div>
+                        <span>Имя</span>
+                        <input type="text" name="Name" value="@Model.Name" />
+                    </div>
+                }
+                else
+                {
+                    <input type="hidden" name="Name" value="@Model.Name" />
+                }
+                @if (user.Phone == null)
+                {
+                    <div>
+                        <span>Телефон</span>
+                        <input type="text" name="Phone" value="@Model.Phone" />
+                    </div>
+                }
+                else
+                {
+                    <input type="hidden" name="Name" value="@Model.Phone" />
+                }
+                @if (user.Address == null)
+                {
+                    <div>
+                        <span>Адрес</span>
+                        <input type="text" name="Address" value="@Model.Address" />
+                    </div>
+                }
+                else
+                {
+                    <input type="hidden" name="Name" value="@Model.Address" />
+                }
+                <div>
+                    <input type="submit" value="Оформить заказ" />
+                </div>
+            </form>
+        </div>
+        <div class="bag">
+            @foreach (var bag in Model.Bags)
+            {
+                <div class="bag__item">
+                    <div class="bag__item__img">
+                        <img src="@Url.Content(bag.Product.Photo.Path + bag.Product.Photo.Name)" alt="img" />
+                    </div>
+                    <div class="bag__item__product-name">
+                        <span>Название</span>
+                        @bag.Product.Name
+                    </div>
+                    <div class="bag__item__product-price">
+                        <span>Цена за 1 шт</span>
+                        @(bag.Product.Price * bag.Portion.Multiplier)
+                    </div>
+                    <div class="bag__item__amount">
+                        <span>Количество</span>
+                        @bag.Amount
+                    </div>
+                    <div class="bag__item__portion">
+                        <span>Порция</span>
+                        @bag.Portion.Size
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

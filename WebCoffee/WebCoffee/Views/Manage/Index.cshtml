@@ -6,6 +6,10 @@
 }
 
 <div class="page">
+    <div class="current-path">
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+        <a asp-controller="Manage" asp-action="Index">Профиль</a>
+    </div>
     <div class="profile_page">
         <div class="sidebar">
             <div>
@@ -19,7 +23,7 @@
             </div>
         </div>
         <div class="profile_page_content">
-            <div class="profile_page_header">Профиль</div>
+            <div class="page-header">Профиль</div>
             <div class="profile">
                 @if (User.IsInRole("Employee"))
                 {

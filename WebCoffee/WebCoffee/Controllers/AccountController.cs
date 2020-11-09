@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebCoffee.Data;
 using WebCoffee.Models;
+using WebCoffee.Services;
 using WebCoffee.ViewModels;
 
 namespace WebCoffee.Controllers
@@ -41,12 +39,12 @@ namespace WebCoffee.Controllers
             if(ModelState.IsValid)
             {
                 var photo = await _context.Files.Where(x => x.Name == "default.png" && x.Path == "/Files/Images/Users/").FirstOrDefaultAsync();
-                ApplicationUser user = new ApplicationUser { Email = model.Email, UserName = model.UserName, Photo =  photo };
+
+                ApplicationUser user = new ApplicationUser { UserName = model.Username, Photo =  photo };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if(result.Succeeded)
                 {
-
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -71,17 +69,22 @@ namespace WebCoffee.Controllers
             if(ModelState.IsValid)
             {
                 var user = await _userManager.FindByNameAsync(model.UserName);
-                if (user.Banned)
-                    return View(model);
-                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe = false, false);
-                if(result.Succeeded)
+                if(user != null)
                 {
-                    return RedirectToAction("Index", "Home");
+                    if (user.Banned)
+                        return View(model);
+                    var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe = false, false);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Неправильный логин или пароль");
+                    }
                 }
                 else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login or password!");
-                }
+                    ModelState.AddModelError(string.Empty, "Неправильный логин или пароль");
             }
             return View(model);
         }

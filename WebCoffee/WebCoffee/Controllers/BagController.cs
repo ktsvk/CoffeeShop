@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebCoffee.Data;
 using WebCoffee.Models;
+using WebCoffee.ViewModels.Products;
 
 namespace WebCoffee.Controllers
 {
@@ -33,20 +34,26 @@ namespace WebCoffee.Controllers
                 .Include(x => x.Product).ThenInclude(x => x.Photo).ToListAsync());
         }
         [HttpPost]
-        public async Task<ActionResult> Create(int id, int portion, int amount)//fix если такой продукт уже есть в корзине
+        public async Task<ActionResult> Create(CreateBagItemViewModel model)
         {
-            if(amount == 0)
+            if(ModelState.IsValid)
             {
-                return RedirectToAction("Index");
-            }
-            var product = await _context.Products.Where(x => x.Id == id).FirstOrDefaultAsync();
-            if(product != null)
-            {
-                var user = await _userManager.GetUserAsync(User);
-                var _portion = await _context.Portions.Where(x => x.Size == portion).FirstOrDefaultAsync();
-                await _context.Bags.AddAsync(new Bag() { Amount = amount, Portion = _portion, Product = product, User = user } );
-                await _context.SaveChangesAsync();
-
+                var product = await _context.Products.Where(x => x.Id == model.Id).FirstOrDefaultAsync();
+                if (product != null)
+                {
+                    var user = await _userManager.GetUserAsync(User);
+                    var bagItem = await _context.Bags.Where(x => x.Product.Id == product.Id && x.Portion.Size == model.Portion && x.User.Id == user.Id)
+                        .FirstOrDefaultAsync();
+                    if(bagItem != null)
+                        bagItem.Amount += model.Amount;
+                    else
+                    {
+                        var portion = await _context.Portions.Where(x => x.Size == model.Portion).FirstOrDefaultAsync();
+                        if(portion != null)
+                            await _context.Bags.AddAsync(new Bag() { Amount = model.Amount, Portion = portion, Product = product, User = user });
+                    }
+                    await _context.SaveChangesAsync();
+                }
             }
             return RedirectToAction("Index");
         }
