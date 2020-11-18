@@ -18,7 +18,8 @@ namespace WebCoffee.Controllers
     {
         private ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
-        public BagController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public BagController(ApplicationDbContext context,
+            UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -31,7 +32,9 @@ namespace WebCoffee.Controllers
                 .Include(x => x.User)
                 .Include(x => x.Portion)
                 .Include(x => x.Product).ThenInclude(x => x.Category)
-                .Include(x => x.Product).ThenInclude(x => x.Photo).ToListAsync());
+                .Include(x => x.Product).ThenInclude(x => x.Photo)
+                .OrderByDescending(x => x.Id)
+                .ToListAsync());
         }
         [HttpPost]
         public async Task<ActionResult> Create(CreateBagItemViewModel model)
@@ -55,29 +58,60 @@ namespace WebCoffee.Controllers
                     await _context.SaveChangesAsync();
                 }
             }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Некорректные данные.");
+            }
             return RedirectToAction("Index");
         }
-        [HttpPost]
-        public async Task<ActionResult> Delete(int id)
+        [HttpGet]
+        public async Task<ActionResult> Remove(int id)
         {
             var user = await _userManager.GetUserAsync(User);
-            var bag = _context.Bags.Where(x => x.User.Id == user.Id);
-            var product = await bag.Where(x => x.Id == id).FirstOrDefaultAsync();
-            if(product != null)
+            var bag = await _context.Bags.Where(x => x.User.Id == user.Id && x.Id == id).FirstOrDefaultAsync();
+            if(bag != null)
             {
-                _context.Bags.Remove(product);
+                _context.Bags.Remove(bag);
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index");
         }
-        [HttpPost]
-        public async Task<ActionResult> DeleteAll(int id)
+        [HttpGet]
+        public async Task<ActionResult> RemoveAll()
         {
             var user = await _userManager.GetUserAsync(User);
             var bag = _context.Bags.Where(x => x.User.Id == user.Id);
             if (await bag.CountAsync() > 0)
             {
                 _context.Bags.RemoveRange(bag);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public async Task<ActionResult> AddToBag(int id)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var bag = await _context.Bags.Where(x => x.Id == id && x.User.Id == user.Id).FirstOrDefaultAsync();
+            if(bag != null)
+            {
+                bag.Amount++;
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public async Task<ActionResult> RemoveFromBag(int id)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var bag = await _context.Bags.Where(x => x.Id == id && x.User.Id == user.Id).FirstOrDefaultAsync();
+            if (bag != null)
+            {
+                bag.Amount--;
+                if(bag.Amount <= 0)
+                {
+                    _context.Bags.Remove(bag);
+                }
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index");

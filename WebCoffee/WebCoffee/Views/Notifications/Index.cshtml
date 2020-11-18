@@ -5,6 +5,76 @@
     var user = await userManager.GetUserAsync(User);
 }
 
+<div class="page">
+    <div class="notifications-wrap">
+        <div class="notifications-header">
+            <span>Уведомления</span>
+        </div>
+        <div class="notifications">
+            @foreach (var notification in Model)
+            {
+                <div class="notification">
+                    <div class="notification-header">
+                        <div class="notification-header-title">
+                            Notification
+                        </div>
+                        <div class="notification-header-from">
+                            username: @notification.From.UserName
+                        </div>
+                    </div>
+                    <div class="notification-body">
+                        <span>@notification.Message</span>
+                    </div>
+                    <div class="notification-footer">
+                        <div class="notification-footer-datetime">
+                            <div class="notification-footer-date">
+                                @notification.Date
+                            </div>
+                            <div class="notification-footer-time">
+                                @notification.Time
+                            </div>
+                        </div>
+                        <form class="notification-footer-submit" asp-action="Check" asp-route-id="@notification.Id">
+                            <input type="submit" value="Пометить как прочитаное">
+                        </form>
+                    </div>
+                </div>
+            }
+            <div class="notification">
+                <div class="notification-header">
+                    <div class="notification-header-title">
+                        title
+                    </div>
+                    <div class="notification-header-from">
+                        username: admin
+                    </div>
+                </div>
+                <div class="notification-body">
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione animi, expedita enim nam praesentium fuga odio laboriosam nostrum similique exercitationem repellendus perferendis ab iste quis atque at ea molestiae molestias?</span>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione animi, expedita enim nam praesentium fuga odio laboriosam nostrum similique exercitationem repellendus perferendis ab iste quis atque at ea molestiae molestias?</span>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione animi, expedita enim nam praesentium fuga odio laboriosam nostrum similique exercitationem repellendus perferendis ab iste quis atque at ea molestiae molestias?</span>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione animi, expedita enim nam praesentium fuga odio laboriosam nostrum similique exercitationem repellendus perferendis ab iste quis atque at ea molestiae molestias?</span>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione animi, expedita enim nam praesentium fuga odio laboriosam nostrum similique exercitationem repellendus perferendis ab iste quis atque at ea molestiae molestias?</span>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione animi, expedita enim nam praesentium fuga odio laboriosam nostrum similique exercitationem repellendus perferendis ab iste quis atque at ea molestiae molestias?</span>
+                </div>
+                <div class="notification-footer">
+                    <div class="notification-footer-datetime">
+                        <div class="notification-footer-date">
+                            17.11.2020
+                        </div>
+                        <div class="notification-footer-time">
+                            18:40
+                        </div>
+                    </div>
+                    <form class="notification-footer-submit">
+                        <input type="submit" value="Пометить как прочитаное">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="main-page">
     <div class="current-path">
         <a asp-controller="Home" asp-action="Index">Главная</a>
@@ -23,7 +93,6 @@
             </div>
         </div>
         <div class="profile_page_content">
-            <div class="profile_page_header">Уведомления</div>
             <div class="notifications">
                 @foreach (var item in Model)
                 {

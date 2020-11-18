@@ -19,19 +19,19 @@ namespace WebCoffee.Data
                     new Portion { Name = "Большая", Size = 300, Multiplier = 2.5f });
                 await context.SaveChangesAsync();
             }
-            if (!await context.Categories.AnyAsync())
-            {
-                await context.Categories.AddRangeAsync(
-                    new Category() { Name = "Кофе" },
-                    new Category() { Name = "Чай" },
-                    new Category() { Name = "Пироженое" },
-                    new Category() { Name = "Торт" },
-                    new Category() { Name = "Печенье" });
-                await context.SaveChangesAsync();
-            }
-            if(!await context.Files.AnyAsync())
+            if (!await context.Files.AnyAsync())
             {
                 await context.Files.AddRangeAsync(
+                    new FileModel() { Name = "bun.jpg", Path = "/Files/Categories/Images/" },
+                    new FileModel() { Name = "coffee.jpg", Path = "/Files/Categories/Images/" },
+                    new FileModel() { Name = "cake.jpg", Path = "/Files/Categories/Images/" },
+                    new FileModel() { Name = "chocolate.jpg", Path = "/Files/Categories/Images/" },
+                    new FileModel() { Name = "marshmellow.jpg", Path = "/Files/Categories/Images/" },
+                    new FileModel() { Name = "pancakes.jpg", Path = "/Files/Categories/Images/" },
+                    new FileModel() { Name = "pastries.jpg", Path = "/Files/Categories/Images/" },
+                    new FileModel() { Name = "waffles.jpg", Path = "/Files/Categories/Images/" },
+                    new FileModel() { Name = "cookie.jpg", Path = "/Files/Categories/Images/" },
+                    new FileModel() { Name = "tea.jpg", Path = "/Files/Categories/Images/" },
                     new FileModel() { Name = "espresso.jpg", Path = "/Files/Images/" },
                     new FileModel() { Name = "capuchino.jpg", Path = "/Files/Images/" },
                     new FileModel() { Name = "americano.jpg", Path = "/Files/Images/" },
@@ -45,7 +45,33 @@ namespace WebCoffee.Data
                     new FileModel() { Name = "yuanyan.jpg", Path = "/Files/Images/" },
                     new FileModel() { Name = "coffeeirlandski.jpg", Path = "/Files/Images/" },
                     new FileModel() { Name = "coffeice.jpg", Path = "/Files/Images/" },
-                    new FileModel() { Name = "default.png", Path = "/Files/Images/Users/" });
+                    new FileModel() { Name = "default.png", Path = "/Files/Images/Users/" },
+                    new FileModel() { Name = "admin.png", Path = "/Files/Images/Users/" });
+                await context.SaveChangesAsync();
+            }
+            if (!await context.Categories.AnyAsync())
+            {
+                var photos = await context.Files.ToListAsync();
+                await context.Categories.AddRangeAsync(
+                    new Category() { Name = "Кофе", NormalizedName = "coffee", Photo = photos.Where(x => x.Name == "coffee.jpg" && x.Path == "/Files/Categories/Images/").FirstOrDefault() },
+                    new Category() { Name = "Чай", NormalizedName = "tea", Photo = photos.Where(x => x.Name == "tea.jpg" && x.Path == "/Files/Categories/Images/").FirstOrDefault() },
+                    new Category() { Name = "Пирожные", NormalizedName = "pastries", Photo = photos.Where(x => x.Name == "pastries.jpg" && x.Path == "/Files/Categories/Images/").FirstOrDefault() },
+                    new Category() { Name = "Торты", NormalizedName = "cakes", Photo = photos.Where(x => x.Name == "cake.jpg" && x.Path == "/Files/Categories/Images/").FirstOrDefault() },
+                    new Category() { Name = "Шоколад", NormalizedName = "chocolate", Photo = photos.Where(x => x.Name == "chocolate.jpg" && x.Path == "/Files/Categories/Images/").FirstOrDefault() },
+                    new Category() { Name = "Булочки", NormalizedName = "buns", Photo = photos.Where(x => x.Name == "bun.jpg" && x.Path == "/Files/Categories/Images/").FirstOrDefault() },
+                    new Category() { Name = "Зефир", NormalizedName = "marshmellow", Photo = photos.Where(x => x.Name == "marshmellow.jpg" && x.Path == "/Files/Categories/Images/").FirstOrDefault() },
+                    new Category() { Name = "Вафли", NormalizedName = "waffles", Photo = photos.Where(x => x.Name == "waffles.jpg" && x.Path == "/Files/Categories/Images/").FirstOrDefault() },
+                    new Category() { Name = "Печенье", NormalizedName = "cookies", Photo = photos.Where(x => x.Name == "cookie.jpg" && x.Path == "/Files/Categories/Images/").FirstOrDefault() });
+                await context.SaveChangesAsync();
+            }
+            if (!await context.News.AnyAsync())
+            {
+                await context.News.AddRangeAsync(
+                    new Novetly { Title = "Title1", Body = "Lorem ipsun Lorem ipsun Lorem ipsun Lorem ipsun", Date = "10.11.2020", Time = "14:19" },
+                    new Novetly { Title = "Title2", Body = "Lorem ipsun Lorem ipsun Lorem ipsun Lorem ipsun", Date = "10.11.2020", Time = "15:24" },
+                    new Novetly { Title = "Title3", Body = "Lorem ipsun Lorem ipsun Lorem ipsun Lorem ipsun", Date = "11.11.2020", Time = "16:36" },
+                    new Novetly { Title = "Title4", Body = "Lorem ipsun Lorem ipsun Lorem ipsun Lorem ipsun", Date = "11.11.2020", Time = "17:03" },
+                    new Novetly { Title = "Title5", Body = "Lorem ipsun Lorem ipsun Lorem ipsun Lorem ipsun", Date = "12.11.2020", Time = "12:01" });
                 await context.SaveChangesAsync();
             }
             if (!await context.Products.AnyAsync())

@@ -1,5 +1,4 @@
 ﻿@model MenuViewModel
-@inject ApplicationDbContext context
 @inject UserManager<ApplicationUser> userManager
 @inject SignInManager<ApplicationUser> signInManager
 @{
@@ -8,37 +7,34 @@
     var user = await userManager.GetUserAsync(User);
 }
 
-<div class="main-page">
-    <div class="current-path">
+<div class="page">
+    <div class="page-path">
         <a asp-controller="Home" asp-action="Index">Главная</a>
-        <a asp-controller="Menu" asp-action="Index">Меню</a>
+        <a asp-action="Index">Меню</a>
     </div>
-    <div class="page-header">Меню</div>
-    <div class="options">
-        <div class="sort-wrapper">
-            <span>Сортировать:</span>
-            <div class="sort">
-                <a asp-action="Index"
-                   asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
-                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
-                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Название</a>
-                <a asp-action="Index"
-                   asp-route-sortOrder="@(Model.SortViewModel.PriceSort)"
-                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
-                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Цена</a>
+
+    <div class="menu-sorter">
+        <div>Сортировать:</div>
+        <div class="menu-sorter-tools" id="sort-by-wrap">
+            <span>По популярности</span>
+            <div class="menu-sorter-hidden" id="sort-by">
                 <a asp-action="Index"
                    asp-route-sortOrder="@(Model.SortViewModel.PurchasesSort)"
                    asp-route-name="@(Model.FilterViewModel.SelectedName)"
-                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Популярность</a>
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">По популярности</a>
                 <a asp-action="Index"
-                   asp-route-sortOrder="@(Model.SortViewModel.CategorySort)"
+                   asp-route-sortOrder="@(Model.SortViewModel.PriceSort)"
                    asp-route-name="@(Model.FilterViewModel.SelectedName)"
-                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Категория</a>
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">По цене</a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)">По названию</a>
             </div>
         </div>
-        <div class="show-option-wrapper">
-            Показывать:
-            <div class="show-option">
+        <div class="menu-sorter-tools" id="sort-howmany-wrap">
+            <span>Показывать 10</span>
+            <div class="menu-sorter-hidden" id="sort-howmany">
                 <a asp-action="Index"
                    asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
                    asp-route-name="@(Model.FilterViewModel.SelectedName)"
@@ -53,69 +49,73 @@
                    asp-route-category="@(Model.FilterViewModel.SelectedCategory)">Показывать 30</a>
             </div>
         </div>
-        <form asp-controller="Menu" asp-action="Index" method="get">
-            <div class="form-inline">
-                <label>Имя: </label>
-                <input name="name" value="@Model.FilterViewModel.SelectedName" class="form-control" />
-
-                <label>Компания: </label>
-                <select name="company" asp-items="Model.FilterViewModel.Categories" class="form-control"></select>
-
-                <input type="submit" value="Фильтр" class="btn btn-outline-dark" />
-            </div>
+        <form class="search-filter" asp-controller="Menu" asp-action="Index" method="get">
+            <input type="text" name="name" class="search-filter-input" placeholder="Поиск по названию">
+            <input type="submit" value="Поиск" class="search-filter-submit">
         </form>
-
-        <div>
-            @if (Model.PageViewModel.HasPreviousPage)
+    </div>
+    <div class="menu-filter-wrapper">
+        <div class="menu-filter">
+            <div class="menu-filter-header">
+                Фильтр
+            </div>
+            <div class="menu-filter-params">
+                <span class="menu-filter-params-header">Категория:</span>
+                <a href="#" class="category-label category-active">Кофе</a>
+                <a href="#" class="category-label">Чай</a>
+                <a href="#" class="category-label">Пироженые</a>
+                <a href="#" class="category-label">Булочки</a>
+                <a href="#" class="category-label">Торты</a>
+            </div>
+            <div class="menu-filter-btns">
+                <input class="menu-filter-sbmt" type="submit" value="Применить">
+                <input class="menu-filter-rst" type="submit" value="Сбросить">
+            </div>
+        </div>
+        <div class="menu">
+            @foreach (var product in Model.Products)
             {
-                <a asp-action="Index"
-                   asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
-                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
-                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)"
-                   asp-route-sortorder="@(Model.SortViewModel.Current)"
-                   class="btn  btn-outline-dark">
-                    <i class="glyphicon glyphicon-chevron-left"></i>
-                    Назад
-                </a>
-            }
-            @if (Model.PageViewModel.HasNextPage)
-            {
-                <a asp-action="Index"
-                   asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
-                   asp-route-name="@(Model.FilterViewModel.SelectedName)"
-                   asp-route-category="@(Model.FilterViewModel.SelectedCategory)"
-                   asp-route-sortorder="@(Model.SortViewModel.Current)"
-                   class="btn btn-outline-dark">
-                    Вперед
-                    <i class="glyphicon glyphicon-chevron-right"></i>
+                <a class="menu-item-wrapper" asp-action="Details" asp-route-id="@product.Id">
+                    <div class="menu-item">
+                        @if (authorize && await userManager.IsInRoleAsync(user, "Admin"))
+                        {
+                            <form asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@product.Id" method="post">
+                                <input type="submit" value="" class="delete_product" />
+                            </form>
+                        }
+                        <div class="menu-item-img">
+                            <img src="@Url.Content(product.Photo.Path + product.Photo.Name)" alt="img">
+                        </div>
+                        <div class="menu-item-body">
+                            <div class="menu-item-title">
+                                @product.Category.Name "@product.Name"
+                            </div>
+                            <div class="menu-item-price">
+                                @product.Price BY <span>за шт.</span>
+                            </div>
+                        </div>
+                    </div>
                 </a>
             }
         </div>
     </div>
-    @if (authorize && await userManager.IsInRoleAsync(user, "Admin"))
+    <div class="pagination">
+        <span class="pagination-item pagination-active">1</span>
+        <span class="pagination-item">2</span>
+        <span class="pagination-item">3</span>
+        <span class="pagination-item">4</span>
+        <span class="pagination-item">5</span>
+    </div>
+</div>
+@*@if (authorize && await userManager.IsInRoleAsync(user, "Admin"))
     {
         <div>
             <a asp-controller="Admin" asp-action="AddProduct">Добавить продукт</a>
         </div>
-    }
-    <div class="menu-products">
-        @foreach (var product in Model.Products)
-        {
-            <a class="product_item" asp-controller="Menu" asp-action="Details" asp-route-id="@product.Id">
-                @if (authorize && await userManager.IsInRoleAsync(user, "Admin"))
-                {
-                    <form asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@product.Id" method="post">
-                        <input type="submit" value="" class="delete_product"/>
-                    </form>
-                }
-                <div class="product-title">
-                    @product.Category.Name "@product.Name"
-                </div>
-                <div class="product-img">
-                    <span class="product-item-price">@product.Price</span>
-                    <img src="@Url.Content(product.Photo.Path + product.Photo.Name)" alt="photo" />
-                </div>
-            </a>
-        }
-    </div>
-</div>
+        @if (authorize && await userManager.IsInRoleAsync(user, "Admin"))
+                    {
+                        <form asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@product.Id" method="post">
+                            <input type="submit" value="" class="delete_product" />
+                        </form>
+                    }
+    }*@

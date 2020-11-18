@@ -1,15 +1,65 @@
 ﻿@model List<Bag>
 @inject ApplicationDbContext context
 @{
-    float totalcost = 0;
+    double totalcost = 0;
     foreach (var bag in Model)
     {
         totalcost += bag.Amount * bag.Portion.Multiplier * bag.Product.Price;
     }
     var bag_count = Model.Count();
+    totalcost = Math.Round(totalcost, 2);
 }
 
-<div class="main-page">
+        <div class="page">
+            <div class="bag">
+                <div class="bag-total">
+                    <div class="bag-total-price">
+                        <span>Общая сумма корзины</span>
+                        <span>@totalcost BYN</span>
+                    </div>
+                    <div class="bag-total-wrap">
+                        <div class="bag-total-refresh">
+                            <a asp-controller="Bag" asp-action="RemoveAll">Отчистить корзину</a>
+                        </div>
+                        <div class="bag-total-submit">
+                            <a asp-controller="Purchases" asp-action="MakeOrder">Оформить заказ</a>
+                        </div>
+                    </div>
+                </div>
+                @foreach (var bag in Model)
+	            {
+                        <div class="bag-item">
+                            <div class="bag-item-photo">
+                                <img src="@Url.Content(bag.Product.Photo.Path + bag.Product.Photo.Name)" alt="photo">
+                            </div>
+                            <div class="bag-item-title">
+                                @bag.Product.Category.Name @bag.Product.Name
+                            </div>
+                            <div class="bag-item-price">
+                                @(Math.Round(bag.Product.Price * bag.Portion.Multiplier, 2)) BYN за шт.
+                            </div>
+                            <div class="bag-item-amount">
+                                <a class="bag-item-amount-btn" asp-action="RemoveFromBag" asp-route-id="@bag.Id">
+                                    -
+                                </a>
+                                <div class="bag-item-amount-number">
+                                    <input type="number" name="amount" value="@bag.Amount">
+                                </div>
+                                <a class="bag-item-amount-btn" asp-action="AddToBag" asp-route-id="@bag.Id">
+                                    +
+                                </a>
+                            </div>
+                            <div class="bag-item-total-price">
+                                <span>@(Math.Round(bag.Amount * bag.Product.Price * bag.Portion.Multiplier, 2)) BYN</span>
+                            </div>
+                            <a class="bag-item-cross" asp-action="Remove" asp-route-id="@bag.Id">
+                                x
+                            </a>
+                        </div>
+	            }
+            </div>
+        </div>
+@*<div class="main-page">
     <div class="current-path">
         <a asp-controller="Home" asp-action="Index">Главная</a>
         <a asp-controller="Bag" asp-action="Index">Корзина</a>
@@ -61,4 +111,4 @@
         </div>
     }
 
-</div>
+</div>*@

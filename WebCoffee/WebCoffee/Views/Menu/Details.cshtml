@@ -1,71 +1,78 @@
-﻿@model Product
+﻿@model DetailsViewModel;
 @inject ApplicationDbContext context
 @using Microsoft.EntityFrameworkCore;
 @{
     ViewData["Title"] = "Details";
-    var similar = await context.Products.Where(x => x.Category.Name == Model.Category.Name && x.Id != Model.Id)
-        .Include(x => x.Category)
-        .Include(x => x.Photo)
-        .ToListAsync();
 }
 
 <div class="page">
-    <div class="current-path">
+    <div class="page-path">
         <a asp-controller="Home" asp-action="Index">Главная</a>
         <a asp-controller="Menu" asp-action="Index">Меню</a>
-        <a asp-controller="Menu" asp-action="Details" asp-route-id="@Model.Id">@Model.Name</a>
+        <a asp-controller="Menu" asp-action="Details" asp-route-id="@Model.Product.Id">@Model.Product.Name</a>
     </div>
-    <div class="details-product">
-        <div class="details-product-body">
-            <div class="details-product-img">
-                <img src="@Url.Content(Model.Photo.Path + Model.Photo.Name)" alt="img" />
-            </div>
-            <div class="details-product-description-wrapper">
-                <div class="details-product-title">
-                    @Model.Category.Name "@Model.Name"
+    <div class="details-item">
+        <div class="details-img">
+            <img src="@Url.Content(Model.Product.Photo.Path + Model.Product.Photo.Name)" alt="img">
+        </div>
+        <div class="details-info-wrapper">
+            <div class="details-info">
+                <div class="details-info-title">
+                    @Model.Product.Category.Name "@Model.Product.Name"
                 </div>
-                <div class="details-product-description">
-                    @Model.Description
+                <div class="details-info-description">
+                    @Model.Product.Description
                 </div>
                 <form asp-controller="Bag" asp-action="Create" method="post">
+                    <div class="details-info-portions-wrapper">
+                        Порции:
+                        <div class="details-info-portions">
+                            <input class="details_portions_input" id="portion1" type="radio" name="portion" value="100" checked />
+                            <input class="details_portions_input" id="portion2" type="radio" name="portion" value="200" />
+                            <input class="details_portions_input" id="portion3" type="radio" name="portion" value="300" />
+                            <label class="details_portions_label" id="portion1label" for="portion1">100</label>
+                            <label class="details_portions_label" id="portion2label" for="portion2">200</label>
+                            <label class="details_portions_label" id="portion3label" for="portion3">300</label>
+                        </div>
+                    </div>
+                    <div class="details-info-amount">
+                        Количество:
+                        <input type="number" value="1" min="1" name="amount">
+                    </div>
                     <div>
-                        Порция
+                        @Model.Product.Price BYN за шт.
                     </div>
-                    <div class="detailts_inputs">
-                        <input class="details_portions_input" id="portion1" type="radio" name="portion" value="100" checked />
-                        <input class="details_portions_input" id="portion2" type="radio" name="portion" value="200" />
-                        <input class="details_portions_input" id="portion3" type="radio" name="portion" value="300" />
-                        <label class="details_portions_label" id="portion1label" for="portion1">100</label>
-                        <label class="details_portions_label" id="portion2label" for="portion2">200</label>
-                        <label class="details_portions_label" id="portion3label" for="portion3">300</label>
+                    <div class="details-info-submit">
+                        <input type="hidden" name="id" value="@Model.Product.Id" />
+                        <input type="submit" value="Добавить в корзину">
                     </div>
-                    <div>
-                        <input type="number" name="amount" value="1" />
-                    </div>
-                    <div class="details-product-price">
-                        @Model.Price BYN цена за 1 шт
-                    </div>
-                    <input type="hidden" name="id" value="@Model.Id" />
-                    <input type="submit" value="Добавить в корзину" />
                 </form>
             </div>
         </div>
     </div>
-    <div class="details_similar">
-        <div class="details_similar_header">Похожие</div>
-        <div class="menu-products">
-            @foreach (var product in similar)
-            {
-                <a href="~/Menu/Details/@product.Id" class="product_item">
-                    <div class="product-title">
-                        @product.Category.Name "@product.Name"
+    <div class="similar">
+        <div class="similar-title">Похожие</div>
+        <div class="similar-menu">
+            <div class="similar-slider-control prev"></div>
+            <div class="similar-slider-control next"></div>
+            <div class="similar-slider-cards">
+                @foreach (var similar in Model.Similar)
+                {
+                    <div class="similar-menu-item">
+                        <div class="similar-menu-item-photo">
+                            <img src="@Url.Content(similar.Photo.Path + similar.Photo.Name)" alt="img">
+                        </div>
+                        <div class="similar-menu-body">
+                            <div class="similar-menu-body-title">
+                                @similar.Category.Name @similar.Name
+                            </div>
+                            <div class="similar-menu-body-price">
+                                @similar.Price BY <span>за шт.</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product-img">
-                        <span class="product-item-price">@product.Price</span>
-                        <img src="@Url.Content(product.Photo.Path + product.Photo.Name)" alt="photo" />
-                    </div>
-                </a>
-            }
+                }
+            </div>
         </div>
     </div>
 </div>

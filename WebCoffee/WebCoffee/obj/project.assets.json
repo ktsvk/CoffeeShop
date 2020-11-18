@@ -5910,19 +5910,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lonatelled\\.nuget\\packages\\": {}
+    "C:\\Users\\skad1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\poit\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
+      "projectUniqueName": "C:\\Users\\skad1\\OneDrive\\Рабочий стол\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
       "projectName": "WebCoffee",
-      "projectPath": "E:\\poit\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
-      "packagesPath": "C:\\Users\\Lonatelled\\.nuget\\packages\\",
-      "outputPath": "E:\\poit\\WebCoffee\\WebCoffee\\obj\\",
+      "projectPath": "C:\\Users\\skad1\\OneDrive\\Рабочий стол\\WebCoffee\\WebCoffee\\WebCoffee.csproj",
+      "packagesPath": "C:\\Users\\skad1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\skad1\\OneDrive\\Рабочий стол\\WebCoffee\\WebCoffee\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lonatelled\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\skad1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5934,6 +5934,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -5945,6 +5946,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "MailKit": {
             "target": "Package",
@@ -5993,7 +5995,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -171,6 +171,9 @@ namespace WebCoffee.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DateOfRegister")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("Discount")
                         .HasColumnType("real");
 
@@ -287,7 +290,15 @@ namespace WebCoffee.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PhotoId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("PhotoId");
 
                     b.ToTable("Categories");
                 });
@@ -342,6 +353,30 @@ namespace WebCoffee.Migrations
                     b.HasIndex("ToId");
 
                     b.ToTable("Notifications");
+                });
+
+            modelBuilder.Entity("WebCoffee.Models.Novetly", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Body")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Date")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Time")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("News");
                 });
 
             modelBuilder.Entity("WebCoffee.Models.Order", b =>
@@ -546,6 +581,13 @@ namespace WebCoffee.Migrations
                     b.HasOne("WebCoffee.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("WebCoffee.Models.Category", b =>
+                {
+                    b.HasOne("WebCoffee.Models.FileModel", "Photo")
+                        .WithMany()
+                        .HasForeignKey("PhotoId");
                 });
 
             modelBuilder.Entity("WebCoffee.Models.Notification", b =>

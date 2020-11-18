@@ -1,9 +1,38 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="main-page">
-    <div class="current-path">
-        <a asp-controller="Home" asp-action="Index">Главная</a>
+<div class="page">
+    <div class="main-page-slider">
+        <div class="main-page-slider__wrapper">
+            <div class="main-page-slider__item-wrap">
+                <div class="main-page-slider__item">
+                    <img src="/img/1.jpg" alt="img">
+                </div>
+            </div>
+            <div class="main-page-slider__item-wrap">
+                <div class="main-page-slider__item">
+                    <img src="/img/2.jpg" alt="">
+                </div>
+            </div>
+            <div class="main-page-slider__item-wrap">
+                <div class="main-page-slider__item">
+                    <img src="/img/4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <span class="main-page-slider__control slider__control_left"></span>
+        <span class="main-page-slider__control slider__control_right slider__control_show"></span>
+    </div>
+    <div class="main-page-menu">
+        @foreach (var category in Model.Categories)
+        {
+            <a class="main-page-menu-item" asp-controller="Menu" asp-action="Index" asp-route-category="@category.NormalizedName">
+                <img src="@Url.Content(category.Photo.Path + category.Photo.Name)" alt="img">
+                <div></div>
+                <span>@category.Name</span>
+            </a>
+        }
     </div>
 </div>

@@ -12,6 +12,7 @@ namespace WebCoffee.ViewModels
         [Required]
         public string Name { get; set; }
         [Required]
+        [Range(1, 100)]
         public int Price { get; set; }
         [Required]
         public string Description { get; set; }

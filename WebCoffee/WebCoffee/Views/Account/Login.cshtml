@@ -2,26 +2,25 @@
 @{
     ViewData["Title"] = "Login";
 }
-
-<h2>Login</h2>
-
-<form method="post" asp-controller="Account" asp-action="Login">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="UserName"></label><br />
-        <input asp-for="UserName" />
-        <span asp-validation-for="UserName"></span>
+<div class="page">
+    <div class="auth">
+        <div>Войти</div>
+        <form class="auth-form" asp-controller="Account" asp-action="Login">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="auth-input">
+                <div>Имя пользователя:</div>
+                <input asp-for="UserName">
+                <span asp-validation-for="UserName"></span>
+            </div>
+            <div class="auth-input">
+                <div>Пароль:</div>
+                <input asp-for="Password">
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="auth-submit">
+                <input type="submit" value="Войти">
+                <input type="button" value="Зарегестрироваться">
+            </div>
+        </form>
     </div>
-    <div>
-        <label asp-for="Password"></label><br />
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="RememberMe"></label><br />
-        <input asp-for="RememberMe" />
-    </div>
-    <div>
-        <input type="submit" value="Login" />
-    </div>
-</form>
+</div>

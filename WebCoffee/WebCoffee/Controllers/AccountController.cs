@@ -16,18 +16,15 @@ namespace WebCoffee.Controllers
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
         private ApplicationDbContext _context;
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationDbContext context)
+        public AccountController(UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
         }
 
-        [Authorize]
-        public ActionResult Index()
-        {
-            return View();
-        }
         [HttpGet]
         public ActionResult Register()
         {
@@ -72,7 +69,10 @@ namespace WebCoffee.Controllers
                 if(user != null)
                 {
                     if (user.Banned)
+                    {
+                        ModelState.AddModelError(string.Empty, "Вы были заблокированы.");
                         return View(model);
+                    }
                     var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe = false, false);
                     if (result.Succeeded)
                     {
@@ -84,7 +84,9 @@ namespace WebCoffee.Controllers
                     }
                 }
                 else
+                {
                     ModelState.AddModelError(string.Empty, "Неправильный логин или пароль");
+                }
             }
             return View(model);
         }

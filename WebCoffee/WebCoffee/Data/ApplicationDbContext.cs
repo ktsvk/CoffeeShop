@@ -22,6 +22,6 @@ namespace WebCoffee.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<FileModel> Files { get; set; }
         public DbSet<Notification> Notifications { get; set; }
-
+        public DbSet<Novetly> News { get; set; }
     }
 }

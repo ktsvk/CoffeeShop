@@ -26,7 +26,8 @@
                 {
                     <div>
                         <span>Имя</span>
-                        <input type="text" name="Name" value="@Model.Name" />
+                        <input asp-for="Name" type="text" name="Name" value="@Model.Name" />
+                        <span asp-validation-for="Name"></span>
                     </div>
                 }
                 else
@@ -37,7 +38,8 @@
                 {
                     <div>
                         <span>Телефон</span>
-                        <input type="text" name="Phone" value="@Model.Phone" />
+                        <input asp-for="Phone" type="text" name="Phone" value="@Model.Phone" />
+                        <span asp-validation-for="Phone"></span>
                     </div>
                 }
                 else
@@ -48,7 +50,8 @@
                 {
                     <div>
                         <span>Адрес</span>
-                        <input type="text" name="Address" value="@Model.Address" />
+                        <input asp-for="Address" type="text" name="Address" value="@Model.Address" />
+                        <span asp-validation-for="Address"></span>
                     </div>
                 }
                 else

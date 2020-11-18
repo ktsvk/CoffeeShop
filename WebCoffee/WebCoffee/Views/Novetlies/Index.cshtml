@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Novetly>
+@{
+
+}
+
+<div>
+    <div>
+        @foreach (var news in Model)
+        {
+            <div class="news-item">
+                <div>
+                    @news.Title
+                </div>
+                <div>
+                    @news.Body
+                </div>
+                <div>
+                    @news.Date
+                </div>
+                <div>
+                    @news.Time
+                </div>
+            </div>
+        }
+    </div>
+</div>

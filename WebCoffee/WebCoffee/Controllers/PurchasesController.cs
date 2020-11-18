@@ -37,7 +37,9 @@ namespace WebCoffee.Controllers
                 .Include(x => x.Purchases).ThenInclude(x => x.Product).ThenInclude(x => x.Category)
                 .Include(x => x.Purchases).ThenInclude(x => x.Product).ThenInclude(x => x.Photo)
                 .Include(x => x.Purchases).ThenInclude(x => x.Portion)
-                .Include(x => x.Purchases).ThenInclude(x => x.Order).ToListAsync());
+                .Include(x => x.Purchases).ThenInclude(x => x.Order)
+                .OrderByDescending(x => x.Id)
+                .ToListAsync());
         }
         [HttpGet]
         public async Task<ActionResult> MakeOrder()
@@ -47,21 +49,27 @@ namespace WebCoffee.Controllers
                 .Include(x => x.User)
                 .Include(x => x.Portion)
                 .Include(x => x.Product).ThenInclude(x => x.Category)
-                .Include(x => x.Product).ThenInclude(x => x.Photo).ToListAsync();
-            var model = new CreateOrderViewModel
+                .Include(x => x.Product).ThenInclude(x => x.Photo)
+                .OrderByDescending(x => x.Id)
+                .ToListAsync();
+            if(bag.Count > 0)
             {
-                Name = user.Name,
-                Address = user.Address,
-                Phone = user.Phone,
-                Delivery = false,
-                Bags = bag,
-            };
-            return View(model);
+                var model = new CreateOrderViewModel
+                {
+                    Name = user.Name,
+                    Address = user.Address,
+                    Phone = user.Phone,
+                    Delivery = false,
+                    Bags = bag,
+                };
+                return View(model);
+            }
+            return RedirectToAction("Index", "Bag");
         }
         [HttpPost]
         public async Task<ActionResult> MakeOrder(CreateOrderViewModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var user = await _userManager.GetUserAsync(User);
                 var bag = await _context.Bags.Where(x => x.User.Id == user.Id)
@@ -72,10 +80,10 @@ namespace WebCoffee.Controllers
                 if (bag.Count() > 0)
                 {
                     var datetime = DateTime.Now;
-                    await _context.Orders.AddAsync(new Order 
-                    { 
-                        Date = datetime.ToShortDateString(), 
-                        Time = datetime.ToShortTimeString(), 
+                    await _context.Orders.AddAsync(new Order
+                    {
+                        Date = datetime.ToShortDateString(),
+                        Time = datetime.ToShortTimeString(),
                         User = user,
                         Delivery = model.Delivery
                     });
@@ -86,21 +94,22 @@ namespace WebCoffee.Controllers
                     foreach (var item in bag)
                     {
                         var price = item.Product.Price * item.Amount * item.Portion.Multiplier;
-                        await _context.Purchases.AddAsync(new Purchase 
-                        { 
-                            Amount = item.Amount, 
-                            Portion = item.Portion, 
-                            Price = price, 
-                            Product = item.Product, 
-                            Order = order 
+                        await _context.Purchases.AddAsync(new Purchase
+                        {
+                            Amount = item.Amount,
+                            Portion = item.Portion,
+                            Price = price,
+                            Product = item.Product,
+                            Order = order
                         });
                         await _context.SaveChangesAsync();
                     }
                     _context.Bags.RemoveRange(bag);
                     await _context.SaveChangesAsync();
                 }
-            }    
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("MakeOrder");
         }
         [HttpGet]
         public async Task<ActionResult> Delete(int id)
@@ -123,6 +132,7 @@ namespace WebCoffee.Controllers
                 .Include(x => x.Purchases).ThenInclude(x => x.Portion)
                 .Include(x => x.Purchases).ThenInclude(x => x.Order)
                 .Include(x => x.User)
+                .OrderByDescending(x => x.Id)
                 .ToListAsync();
             return View("Job", orders);
         }

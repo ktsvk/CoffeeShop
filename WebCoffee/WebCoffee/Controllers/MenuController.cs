@@ -10,6 +10,7 @@ using Microsoft.Extensions.Primitives;
 using WebCoffee.Data;
 using WebCoffee.Models;
 using WebCoffee.ViewModels;
+using WebCoffee.ViewModels.Menu;
 
 namespace WebCoffee.Controllers
 {
@@ -22,7 +23,7 @@ namespace WebCoffee.Controllers
             _context = context;
         }
         [HttpGet]
-        public async Task<ActionResult> Index(int? category, string name, int page = 1, SortState sortOrder = SortState.NameAsc)
+        public async Task<ActionResult> Index(int amount, int? category, string name, int page = 1,  int pageSize = 3, SortState sortOrder = SortState.NameAsc)
         {
             IQueryable<Product> products = _context.Products
                 .Include(x => x.Category)
@@ -37,7 +38,6 @@ namespace WebCoffee.Controllers
                 products = products.Where(p => p.Name.Contains(name));
             }
 
-            int pageSize = 10;
 
             switch (sortOrder)
             {
@@ -69,11 +69,15 @@ namespace WebCoffee.Controllers
 
 
             var count = await products.CountAsync();
-            var items = await products.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+            amount += 3;
+            if (amount > count)
+                amount = count;
+            var items = await products.Take(amount).ToListAsync();
+            //var items = await products.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
 
             MenuViewModel viewModel = new MenuViewModel
             {
-                PageViewModel = new PageViewModel(count, page, pageSize),
+                PageViewModel = new PageViewModel(count, page, pageSize, 1, amount),
                 SortViewModel = new SortViewModel(sortOrder),
                 FilterViewModel = new FilterViewModel(_context.Categories.ToList(), category, name),
                 Products = items
@@ -81,10 +85,25 @@ namespace WebCoffee.Controllers
             return View(viewModel);
         }
         [HttpGet]
-        public async Task<ActionResult> Details(int id) => 
-            View(await _context.Products.Where(x => x.Id == id)
+        public async Task<ActionResult> Details(int id)
+        {
+            var model = new DetailsViewModel();
+            var products = _context.Products;
+
+            var product = await products.Where(x => x.Id == id)
                 .Include(x => x.Category)
                 .Include(x => x.Photo)
-                .FirstOrDefaultAsync());
+                .FirstOrDefaultAsync();
+
+            model.Product = product;
+
+            model.Similar = await products.Where(x => x.Category.Name == product.Category.Name)
+                .Take(10)
+                .Include(x => x.Category)
+                .Include(x => x.Photo)
+                .ToListAsync();
+
+            return View(model);
+        }
     }
 }

@@ -10,7 +10,9 @@ namespace WebCoffee.Data
 {
     public class RolesInizializer
     {
-        public static async Task InizializeAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
+        public static async Task InizializeAsync(UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager,
+            ApplicationDbContext context)
         {
             string login = "admin";
             string password = "admin";

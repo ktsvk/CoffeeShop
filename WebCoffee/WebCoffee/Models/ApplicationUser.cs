@@ -17,6 +17,7 @@ namespace WebCoffee.Models
         public string Address { get; set; }
         public int Rating { get; set; }
         public float Discount { get; set; }
+        public string DateOfRegister { get; set; }
         public bool Banned { get; set; }
     }
 }

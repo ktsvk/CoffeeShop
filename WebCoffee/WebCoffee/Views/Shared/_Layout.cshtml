@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.EntityFrameworkCore
 @inject WebCoffee.Data.ApplicationDbContext context
 @inject SignInManager<ApplicationUser> signInManager
 @inject UserManager<ApplicationUser> userManager
@@ -7,57 +8,65 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebCoffee</title>
+    <title>Coffee</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/normalize.css" />
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/global.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebCoffee</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Menu" asp-action="Index">Меню</a>
-                        </li>
+    <div class="header-bg">
+        <div class="container">
+            <div class="header">
+                <a asp-controller="Home" asp-action="Index" class="header-logo">
+                    <img src="~/img/1.png" alt="logo">
+                    WebCoffee
+                </a>
+                <div class="header-content">
+                    <div class="header-items">
+                        <a asp-controller="Menu" asp-action="Index" class="header-item">Меню</a>
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Employee"))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Purchases" asp-action="Job">Заказы</a>
-                            </li>
+                            <a asp-controller="Purchases" asp-action="Job" class="header-item">Заказы</a>
                         }
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Пользователи</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Report" asp-action="Index">Отчет</a>
-                            </li>
+                            <a asp-controller="Users" asp-action="Index" class="header-item">Пользователи</a>
+                            <a asp-controller="Report" asp-action="Index" class="header-item">Отчет</a>
                         }
-                    </ul>
+                    </div>
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        var identityUser = await userManager.GetUserAsync(User);
+                        var user = await context.Users.Where(x => x.Id == identityUser.Id)
+                            .Include(x => x.Photo)
+                            .FirstOrDefaultAsync();
+                        <div class="header-account">
+                            <a class="header-item"  asp-controller="Bag" asp-action="Index">Корзина</a>
+                            <a class="header-item header-account-photo" asp-controller="Manage" asp-action="Index" asp-route-id="@user.Id">
+                                <img src="@Url.Content(user.Photo.Path + user.Photo.Name)" alt="profile">
+                            </a>
+                            <a class="header-item" asp-controller="Account" asp-action="Logout">Выйти</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="header-items">
+                            <a id="login-btn" class="header-item" asp-controller="Account" asp-action="Login">Войти</a>
+                            <a id="register-btn" class="header-item" asp-controller="Account" asp-action="Register">Зарегестрироваться</a>
+                        </div>
+                    }
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
             @RenderBody()
-        </main>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - WebCoffee
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -7,12 +7,16 @@ namespace WebCoffee.ViewModels
 {
     public class PageViewModel
     {
-        public int PageNumber { get; private set; }
+        public int CurrentPage { get; private set; }
         public int TotalPages { get; private set; }
+        public int VisiblePagesRange { get; set; }
+        public int Amount { get; set; }
 
-        public PageViewModel(int count, int pageNumber, int pageSize)
+        public PageViewModel(int count, int current, int pageSize, int visiblePagesRange, int amount)
         {
-            PageNumber = pageNumber;
+            CurrentPage = current;
+            Amount = amount;
+            VisiblePagesRange = visiblePagesRange;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
         }
 
@@ -20,7 +24,7 @@ namespace WebCoffee.ViewModels
         {
             get
             {
-                return (PageNumber > 1);
+                return (CurrentPage > 1);
             }
         }
 
@@ -28,7 +32,7 @@ namespace WebCoffee.ViewModels
         {
             get
             {
-                return (PageNumber < TotalPages);
+                return (CurrentPage < TotalPages);
             }
         }
     }

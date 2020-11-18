@@ -48,7 +48,20 @@ namespace WebCoffee.Controllers
                 var identityUser = await _userManager.FindByIdAsync(id);
                 var user = await _context.Users.Where(x => x.Id == identityUser.Id).Include(x => x.Photo).FirstOrDefaultAsync();
                 if(user != null)
-                    return View(user);
+                {
+                    var model = new ProfileViewModel();
+                    model.User = user;
+                    model.NotificationsCount = _context.Notifications.Where(x => x.To.Id == user.Id).Count();
+                    model.Orders = await _context.Orders.Where(x => x.User.Id == user.Id)
+                        .Include(x => x.User)
+                        .Include(x => x.Purchases).ThenInclude(x => x.Product).ThenInclude(x => x.Category)
+                        .Include(x => x.Purchases).ThenInclude(x => x.Product).ThenInclude(x => x.Photo)
+                        .Include(x => x.Purchases).ThenInclude(x => x.Portion)
+                        .Include(x => x.Purchases).ThenInclude(x => x.Order)
+                        .OrderByDescending(x => x.Id)
+                        .ToListAsync();
+                    return View(model);
+                }
             }
             return RedirectToAction("Index", "Home");
         }

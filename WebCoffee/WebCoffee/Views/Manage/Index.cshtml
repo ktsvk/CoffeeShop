@@ -1,4 +1,4 @@
-﻿@model ApplicationUser
+﻿@model ProfileViewModel
 @inject UserManager<ApplicationUser> userManager
 @{
     ViewData["Title"] = "Профиль";
@@ -6,6 +6,78 @@
 }
 
 <div class="page">
+    <div class="profile">
+        <form class="profile-photo" asp-action="ChangePhoto">
+            <input type="file" name="photo" id="file">
+            <div>
+                <label for="file">+</label>
+                <div>
+                    <img src="@Url.Content(Model.User.Photo.Path + Model.User.Photo.Name)" alt="photo">
+                </div>
+            </div>
+        </form>
+        <div class="profile-info">
+            <div class="profile-info-name">
+                @Model.User.Name @Model.User.Surname
+                <div>*</div>
+            </div>
+            <div class="profile-info-phone">
+                @Model.User.Phone
+            </div>
+            <div class="profile-info-orders-wrap">
+                <div class="profile-info-orders-header">
+                    <span>@Model.Orders.Count заказов</span>
+                </div>
+                <div class="profile-info-orders">
+                    @foreach (var order in Model.Orders)
+                    {
+                        <div class="profile-info-order-item-wrap">
+                            <div class="profile-info-order-item">
+                                <div class="profile-info-order-datetime">
+                                    <div class="profile-info-order-date">
+                                        Дата:
+                                        <span>@order.Date</span>
+                                    </div>
+                                    <div class="profile-info-order-date">
+                                        Время:
+                                        <span>@order.Time</span>
+                                    </div>
+                                </div>
+                                <div class="profile-info-order-price">
+                                    @{
+                                        double totalcost = 0;
+                                        foreach (var purchase in order.Purchases)
+                                        {
+                                            totalcost += purchase.Amount * purchase.Product.Price * purchase.Portion.Multiplier;
+                                        }
+                                    }
+                                    Общая стоимость:
+                                    <span>@Math.Round(totalcost, 2) BYN</span>
+                                </div>
+                            </div>
+                            <div class="profile-info-order-purchases">
+                                @foreach (var purchase in order.Purchases)
+                                {
+                                    <div class="profile-info-order-purchase">
+                                        <div class="profile-info-order-item-img">
+                                            <img src="@Url.Content(purchase.Product.Photo.Path + purchase.Product.Photo.Name)" alt="img">
+                                        </div>
+                                        <div class="profile-info-order-amount">
+                                            Количество:
+                                            <span>@purchase.Amount</span>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="page">
     <div class="current-path">
         <a asp-controller="Home" asp-action="Index">Главная</a>
         <a asp-controller="Manage" asp-action="Index">Профиль</a>
@@ -25,10 +97,6 @@
         <div class="profile_page_content">
             <div class="page-header">Профиль</div>
             <div class="profile">
-                @if (User.IsInRole("Employee"))
-                {
-                    <div class="profile_rating">Рейтинг: @user.Rating</div>
-                }
                 <div class="profile__photo">
                     <img src="@Url.Content(Model.Photo.Path + Model.Photo.Name)" alt="img" />
                     <form asp-controller="Manage" asp-action="ChangePhoto" method="post" class="profile__form" enctype="multipart/form-data">
@@ -72,4 +140,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@

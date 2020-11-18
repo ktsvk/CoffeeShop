@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebCoffee.Data;
 using WebCoffee.Models;
+using WebCoffee.Services;
 using WebCoffee.ViewModels;
 
 namespace WebCoffee.Controllers
@@ -21,14 +22,16 @@ namespace WebCoffee.Controllers
         private ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
         private IWebHostEnvironment _hostEnvironment;
-        public AdminController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment hostEnvironment)
+        public AdminController(ApplicationDbContext context,
+            UserManager<ApplicationUser> userManager,
+            IWebHostEnvironment hostEnvironment)
         {
             _context = context;
             _userManager = userManager;
             _hostEnvironment = hostEnvironment;
         }
         [HttpGet]
-        public async Task<ActionResult> AddProduct()
+        public IActionResult AddProduct()
         {
             return View();
         }
@@ -37,17 +40,16 @@ namespace WebCoffee.Controllers
         {
             if(ModelState.IsValid)
             {
-                string path = "/Files/Images/Products/Photos/" + model.Photo.FileName;
+                var path = "/Files/Images/Products/Photos/";
+                var fileService = new FileService();
+                await fileService.CreateFile(path, model.Photo.FileName, model.Photo, _hostEnvironment);
 
-                using (var fs = new FileStream(_hostEnvironment.WebRootPath + path, FileMode.Create))
-                {
-                    await model.Photo.CopyToAsync(fs);
-                }
-                await _context.Files.AddAsync(new FileModel { Name = model.Photo.FileName, Path = "/Files/Images/Products/Photos/" });
+                await _context.Files.AddAsync(new FileModel { Name = model.Photo.FileName, Path = path });
                 await _context.SaveChangesAsync();
-                var photo = await _context.Files.Where(x => x.Path == "/Files/Images/Products/Photos/" && x.Name == model.Photo.FileName).FirstOrDefaultAsync();
 
+                var photo = await _context.Files.Where(x => x.Path == path && x.Name == model.Photo.FileName).FirstOrDefaultAsync();
                 var category = await _context.Categories.Where(x => x.Name == model.Category).FirstOrDefaultAsync();
+
                 if(category == null)
                 {
                     await _context.Categories.AddAsync(new Category() { Name = model.Category });
@@ -57,7 +59,7 @@ namespace WebCoffee.Controllers
                 await _context.Products.AddAsync(new Product() { Name = model.Name, Price = model.Price, Description = model.Description, Category = category, Photo = photo });
                 await _context.SaveChangesAsync();
             }
-            return RedirectToAction("Index", "Menu");
+            return View(model);
         }
         [HttpPost]
         public async Task<ActionResult> DeleteProduct(int id)
